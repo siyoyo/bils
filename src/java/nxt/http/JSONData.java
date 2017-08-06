@@ -47,7 +47,7 @@ final class JSONData {
                 json.put("unconfirmedBalanceNQT", String.valueOf(account.getUnconfirmedBalanceNQT()));
                 json.put("effectiveBalanceNXL", account.getEffectiveBalanceNXL());
                 json.put("forgedBalanceNQT", String.valueOf(account.getForgedBalanceNQT()));
-                json.put("guaranteedBalanceNQT", String.valueOf(account.getGuaranteedBalanceNQT(1)));
+                json.put("guaranteedBalanceNQT", String.valueOf(account.getGuaranteedBalanceNQT(180)));
             }
         }
         return json;

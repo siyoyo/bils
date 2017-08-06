@@ -213,7 +213,7 @@ public final class DebugTrace {
         map.put("account", Convert.toUnsignedLong(accountId));
         Account account = Account.getAccount(accountId);
         // use 1441 instead of 1440 as at this point the newly generated block has already been pushed
-        map.put("lessor guaranteed balance", String.valueOf(account.getGuaranteedBalanceNQT(1)));
+        map.put("lessor guaranteed balance", String.valueOf(account.getGuaranteedBalanceNQT(180)));
         map.put("lessee", Convert.toUnsignedLong(lesseeId));
         map.put("timestamp", String.valueOf(Nxt.getBlockchain().getLastBlock().getTimestamp()));
         map.put("height", String.valueOf(Nxt.getBlockchain().getLastBlock().getHeight()));
