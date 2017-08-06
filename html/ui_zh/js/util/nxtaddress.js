@@ -256,7 +256,7 @@ function NxtAddress() {
 	} //__________________________
 
 	this.toString = function() {
-		var out = 'BILS-';
+		var out = 'NXL-';
 
 		for (var i = 0; i < 17; i++) {
 			out += alphabet[codeword[cwmap[i]]];
@@ -311,7 +311,7 @@ function NxtAddress() {
 
 		adr = adr.replace(/(^\s+)|(\s+$)/g, '').toUpperCase();
 
-		if (adr.indexOf('BILS-') == 0) adr = adr.substr(5);
+		if (adr.indexOf('NXL-') == 0) adr = adr.substr(5);
 
 		if (adr.match(/^\d{1,20}$/g)) // account id
 		{

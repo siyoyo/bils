@@ -79,7 +79,7 @@ var NRS = (function(NRS, $, undefined) {
 			};
 		}
 
-		if (/^\d+$/.test(data.name) || /^BILS\-/i.test(data.name)) {
+		if (/^\d+$/.test(data.name) || /^NXL\-/i.test(data.name)) {
 			return {
 				"error": "Contact name must contain alphabetic characters."
 			};
@@ -102,7 +102,7 @@ var NRS = (function(NRS, $, undefined) {
 			}
 		}
 
-		if (/^BILS\-/i.test(data.account_id)) {
+		if (/^NXL\-/i.test(data.account_id)) {
 			data.account_rs = data.account_id;
 
 			var address = new NxtAddress();
@@ -200,7 +200,7 @@ var NRS = (function(NRS, $, undefined) {
 		if (!contactId && NRS.selectedContext) {
 			var accountId = NRS.selectedContext.data("account");
 
-			var dbKey = (/^BILS\-/i.test(accountId) ? "accountRS" : "account");
+			var dbKey = (/^NXL\-/i.test(accountId) ? "accountRS" : "account");
 
 			var dbQuery = {};
 			dbQuery[dbKey] = accountId;
@@ -272,7 +272,7 @@ var NRS = (function(NRS, $, undefined) {
 			};
 		}
 
-		if (/^BILS\-/i.test(data.account_id)) {
+		if (/^NXL\-/i.test(data.account_id)) {
 			data.account_rs = data.account_id;
 
 			var address = new NxtAddress();

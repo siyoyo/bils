@@ -53,7 +53,7 @@ var NRS = (function(NRS, $, undefined) {
 		if (account.unconfirmedBalanceNQT == "0") {
 			$("#user_info_modal_account_balance").html("0");
 		} else {
-			$("#user_info_modal_account_balance").html(NRS.formatAmount(account.unconfirmedBalanceNQT) + " BILS");
+			$("#user_info_modal_account_balance").html(NRS.formatAmount(account.unconfirmedBalanceNQT) + " NXL");
 		}
 
 		if (account.name) {

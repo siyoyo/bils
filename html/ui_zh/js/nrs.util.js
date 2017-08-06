@@ -903,7 +903,7 @@
 					value = NRS.formatQuantity(value, 0);
 				}
 			} else if (key == "Price" || key == "Total" || key == "Amount" || key == "Fee") {
-				value = NRS.formatAmount(new BigInteger(value)) + " BILS";
+				value = NRS.formatAmount(new BigInteger(value)) + " NXL";
 			} else if (key == "Sender" || key == "Recipient" || key == "Account") {
 				value = "<a href='#' data-user='" + String(value).escapeHTML() + "'>" + NRS.getAccountTitle(value) + "</a>";
 			} else {

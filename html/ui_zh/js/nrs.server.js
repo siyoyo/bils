@@ -210,7 +210,7 @@
 			}
 
 			if (typeof data == "object" && "recipient" in data) {
-				if (/^BILS\-/i.test(data.recipient)) {
+				if (/^NXL\-/i.test(data.recipient)) {
 					data.recipientRS = data.recipient;
 
 					var address = new NxtAddress();
@@ -338,8 +338,8 @@
 
 		if (!("recipient" in data)) {
 			//recipient == genesis
-			data.recipient = "5547846998156852386";
-			data.recipientRS = "BILS-QH74-GFWP-X86Z-6BHZT";
+			data.recipient = "3342252292595121715";
+			data.recipientRS = "NXL-VZKM-S46X-HXEG-4JJSW";
 		}
 
 		if (transaction.senderPublicKey != NRS.accountInfo.publicKey) {

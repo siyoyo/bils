@@ -1133,8 +1133,8 @@ var NRS = (function(NRS, $, undefined) {
 		}
 
 		$("#asset_order_description").html(description);
-		$("#asset_order_total").html(totalNXT + " BILS");
-		$("#asset_order_fee_paid").html(NRS.formatAmount(feeNQT) + " BILS");
+		$("#asset_order_total").html(totalNXT + " NXL");
+		$("#asset_order_fee_paid").html(NRS.formatAmount(feeNQT) + " NXL");
 
 		if (quantity != "1") {
 			$("#asset_order_total_tooltip").show();

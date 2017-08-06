@@ -1,3 +1,3 @@
 @ECHO OFF
 
-start "BILS NRS" java -cp bils.jar;lib\*;conf nxt.Nxt
+start "NXL NRS" java -cp bils.jar;lib\*;conf nxt.Nxt
