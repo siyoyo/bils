@@ -9,8 +9,9 @@ public final class Constants {
     public static final int MAX_NUMBER_OF_TRANSACTIONS = 255;
     public static final int MAX_PAYLOAD_LENGTH = MAX_NUMBER_OF_TRANSACTIONS * 160;
     public static final long MAX_BALANCE_NXL = 2000000000;
-    public static final long ONE_NXL = 10000000;
-    public static final long MAX_BALANCE_NQT = MAX_BALANCE_NXL * ONE_NXL;
+	public static final long ONE_NXL = 100000000;
+    public static final long ONE_TEN_NXL = 10000000;
+    public static final long MAX_BALANCE_NQT = MAX_BALANCE_NXL * 100000000;
     public static final long INITIAL_BASE_TARGET = 153722867;
     public static final long MAX_BASE_TARGET = MAX_BALANCE_NXL * INITIAL_BASE_TARGET;
 
@@ -64,7 +65,7 @@ public final class Constants {
     public static final int VOTING_SYSTEM_BLOCK = isTestnet ? 0 : Integer.MAX_VALUE;
     public static final int DIGITAL_GOODS_STORE_BLOCK = isTestnet ? 0 : Integer.MAX_VALUE;
 
-    static final long UNCONFIRMED_POOL_DEPOSIT_NQT = (isTestnet ? 50 : 100) * ONE_NXL;
+    static final long UNCONFIRMED_POOL_DEPOSIT_NQT = (isTestnet ? 50 : 100) * 10000000;
 
     public static final long EPOCH_BEGINNING;
     static {

@@ -39,7 +39,7 @@ final class TransactionImpl implements Transaction {
 
         if ((timestamp == 0 && Arrays.equals(senderPublicKey, Genesis.CREATOR_PUBLIC_KEY))
                 ? (deadline != 0 || feeNQT != 0)
-                : (deadline < 1 || feeNQT < Constants.ONE_NXL)
+                : (deadline < 1 || feeNQT < Constants.ONE_TEN_NXL)
                 || feeNQT > Constants.MAX_BALANCE_NQT
                 || amountNQT < 0
                 || amountNQT > Constants.MAX_BALANCE_NQT
@@ -266,8 +266,8 @@ final class TransactionImpl implements Transaction {
                 buffer.put(new byte[32]);
             }
         } else {
-            buffer.putInt((int)(amountNQT / Constants.ONE_NXL));
-            buffer.putInt((int)(feeNQT / Constants.ONE_NXL));
+            buffer.putInt((int)(amountNQT / Constants.ONE_TEN_NXL));
+            buffer.putInt((int)(feeNQT / Constants.ONE_TEN_NXL));
             if (referencedTransactionFullHash != null) {
                 buffer.putLong(Convert.fullHashToId(Convert.parseHexString(referencedTransactionFullHash)));
             } else {

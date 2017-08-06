@@ -125,13 +125,13 @@ final class DbVersion {
             case 27:
                 apply("ALTER TABLE transaction ALTER COLUMN fee BIGINT");
             case 28:
-                apply("UPDATE block SET total_amount = total_amount * " + Constants.ONE_NXL + " WHERE height <= " + Constants.NQT_BLOCK);
+                apply("UPDATE block SET total_amount = total_amount * " + Constants.ONE_TEN_NXL + " WHERE height <= " + Constants.NQT_BLOCK);
             case 29:
-                apply("UPDATE block SET total_fee = total_fee * " + Constants.ONE_NXL + " WHERE height <= " + Constants.NQT_BLOCK);
+                apply("UPDATE block SET total_fee = total_fee * " + Constants.ONE_TEN_NXL + " WHERE height <= " + Constants.NQT_BLOCK);
             case 30:
-                apply("UPDATE transaction SET amount = amount * " + Constants.ONE_NXL + " WHERE height <= " + Constants.NQT_BLOCK);
+                apply("UPDATE transaction SET amount = amount * " + Constants.ONE_TEN_NXL + " WHERE height <= " + Constants.NQT_BLOCK);
             case 31:
-                apply("UPDATE transaction SET fee = fee * " + Constants.ONE_NXL + " WHERE height <= " + Constants.NQT_BLOCK);
+                apply("UPDATE transaction SET fee = fee * " + Constants.ONE_TEN_NXL + " WHERE height <= " + Constants.NQT_BLOCK);
             case 32:
                 apply(null);
             case 33:

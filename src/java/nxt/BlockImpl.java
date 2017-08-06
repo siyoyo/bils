@@ -256,8 +256,8 @@ final class BlockImpl implements Block {
         buffer.putLong(Convert.nullToZero(previousBlockId));
         buffer.putInt(blockTransactions.size());
         if (version < 3) {
-            buffer.putInt((int)(totalAmountNQT / Constants.ONE_NXL));
-            buffer.putInt((int)(totalFeeNQT / Constants.ONE_NXL));
+            buffer.putInt((int)(totalAmountNQT / Constants.ONE_TEN_NXL));
+            buffer.putInt((int)(totalFeeNQT / Constants.ONE_TEN_NXL));
         } else {
             buffer.putLong(totalAmountNQT);
             buffer.putLong(totalFeeNQT);
