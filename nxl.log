@@ -1,69 +1,67 @@
-2017-08-06 16:09:38 INFO: nxt.enableStackTraces = "true"
-2017-08-06 16:09:38 INFO: nxt.enableLogTraceback = "false"
-2017-08-06 16:09:38 INFO: logging enabled
-2017-08-06 16:09:38 INFO: nxt.dbCacheKB = "0"
-2017-08-06 16:09:38 INFO: nxt.isTestnet = "false"
-2017-08-06 16:09:38 INFO: nxt.dbUrl = "jdbc:h2:nxl_db/nxl;DB_CLOSE_ON_EXIT=FALSE"
-2017-08-06 16:09:38 INFO: nxt.maxDbConnections = "10"
-2017-08-06 16:09:38 INFO: nxt.dbLoginTimeout = "70"
-2017-08-06 16:09:38 INFO: nxt.dbDefaultLockTimeout = "10"
-2017-08-06 16:09:41 INFO: Database update may take a while if needed, current db version 51...
-2017-08-06 16:09:41 INFO: nxt.forceValidate = "false"
-2017-08-06 16:09:41 INFO: nxt.myPlatform = "PC"
-2017-08-06 16:09:41 INFO: nxt.myAddress = "175.197.249.207"
-2017-08-06 16:09:41 INFO: nxt.peerServerPort = "15011"
-2017-08-06 16:09:41 INFO: nxt.shareMyAddress = "true"
-2017-08-06 16:09:41 INFO: nxt.myHallmark not defined
-2017-08-06 16:09:41 INFO: nxt.wellKnownPeers = "47.74.131.167"
-2017-08-06 16:09:41 INFO: nxt.knownBlacklistedPeers not defined
-2017-08-06 16:09:41 INFO: nxt.maxNumberOfConnectedPublicPeers = "20"
-2017-08-06 16:09:41 INFO: nxt.connectTimeout = "4000"
-2017-08-06 16:09:41 INFO: nxt.readTimeout = "8000"
-2017-08-06 16:09:41 INFO: nxt.enableHallmarkProtection = "true"
-2017-08-06 16:09:41 INFO: nxt.pushThreshold = "0"
-2017-08-06 16:09:41 INFO: nxt.pullThreshold = "0"
-2017-08-06 16:09:41 INFO: nxt.blacklistingPeriod = "600000"
-2017-08-06 16:09:41 INFO: nxt.communicationLoggingMask = "0"
-2017-08-06 16:09:41 INFO: nxt.sendToPeersLimit = "10"
-2017-08-06 16:09:41 INFO: nxt.usePeersDb = "true"
-2017-08-06 16:09:41 INFO: nxt.savePeers = "true"
-2017-08-06 16:09:41 INFO: nxt.peerServerHost = "0.0.0.0"
-2017-08-06 16:09:41 INFO: nxt.peerServerIdleTimeout = "30000"
-2017-08-06 16:09:41 INFO: nxt.enablePeerServerDoSFilter = "true"
-2017-08-06 16:09:41 INFO: nxt.peerServerDoSFilter.maxRequestsPerSec = "30"
-2017-08-06 16:09:41 INFO: nxt.peerServerDoSFilter.delayMs = "1000"
-2017-08-06 16:09:41 INFO: nxt.peerServerDoSFilter.maxRequestMs = "300000"
-2017-08-06 16:09:41 INFO: nxt.allowedBotHosts = "*;127.0.0.1; localhost; [0:0:0:0:0:0:0:1];"
-2017-08-06 16:09:41 INFO: nxt.enableAPIServer = "true"
-2017-08-06 16:09:41 INFO: nxt.apiServerPort = "14725"
-2017-08-06 16:09:41 INFO: nxt.apiServerHost = "0.0.0.0"
-2017-08-06 16:09:41 INFO: nxt.apiSSL = "false"
-2017-08-06 16:09:41 INFO: nxt.apiServerIdleTimeout = "30000"
-2017-08-06 16:09:41 INFO: nxt.apiResourceBase = "html/ui"
-2017-08-06 16:09:41 INFO: nxt.javadocResourceBase = "html/doc"
-2017-08-06 16:09:41 INFO: nxt.apiServerCORS = "false"
-2017-08-06 16:09:41 INFO: nxt.allowedUserHosts = "*;127.0.0.1; localhost; [0:0:0:0:0:0:0:1];"
-2017-08-06 16:09:41 INFO: nxt.enableUIServer = "true"
-2017-08-06 16:09:41 INFO: nxt.uiServerPort = "25011"
-2017-08-06 16:09:41 INFO: nxt.uiServerHost = "0.0.0.0"
-2017-08-06 16:09:41 INFO: nxt.uiSSL = "false"
-2017-08-06 16:09:41 INFO: nxt.uiServerIdleTimeout = "30000"
-2017-08-06 16:09:41 INFO: nxt.uiResourceBase = "html/nrs"
-2017-08-06 16:09:41 INFO: nxt.javadocResourceBase = "html/doc"
-2017-08-06 16:09:41 INFO: nxt.uiServerCORS = "false"
-2017-08-06 16:09:41 INFO: nxt.debugTraceQuote = """
-2017-08-06 16:09:41 INFO: nxt.debugTraceSeparator = "	"
-2017-08-06 16:09:41 INFO: nxt.debugLogUnconfirmed = "false"
-2017-08-06 16:09:41 INFO: nxt.debugTraceAccounts not defined
-2017-08-06 16:09:41 INFO: nxt.debugTraceLog = "nxl-trace.csv"
-2017-08-06 16:09:41 INFO: Genesis block already in database
-2017-08-06 16:09:41 INFO: Scanning blockchain...
-2017-08-06 16:09:41 INFO: processed block 0
-2017-08-06 16:09:41 INFO: ...done
-2017-08-06 16:09:41 INFO: Started peer networking server at 0.0.0.0:15011
-2017-08-06 16:09:41 INFO: Started API server at 0.0.0.0:14725
-2017-08-06 16:09:41 INFO: Started user interface server at 0.0.0.0:25011
-2017-08-06 16:09:41 INFO: NXL Lite server 1.1.6 started successfully.
-2017-08-06 16:09:41 INFO: nxt.apiServerEnforcePOST = "true"
-2017-08-06 16:11:44 INFO: Checksum passed at block 0
-2017-08-06 16:11:44 INFO: Checksum passed at block 0
+2017-08-06 16:27:56 INFO: nxt.enableStackTraces = "true"
+2017-08-06 16:27:56 INFO: nxt.enableLogTraceback = "false"
+2017-08-06 16:27:56 INFO: logging enabled
+2017-08-06 16:27:56 INFO: nxt.dbCacheKB = "0"
+2017-08-06 16:27:56 INFO: nxt.isTestnet = "false"
+2017-08-06 16:27:56 INFO: nxt.dbUrl = "jdbc:h2:nxl_db/nxl;DB_CLOSE_ON_EXIT=FALSE"
+2017-08-06 16:27:56 INFO: nxt.maxDbConnections = "10"
+2017-08-06 16:27:56 INFO: nxt.dbLoginTimeout = "70"
+2017-08-06 16:27:56 INFO: nxt.dbDefaultLockTimeout = "10"
+2017-08-06 16:27:59 INFO: Database update may take a while if needed, current db version 51...
+2017-08-06 16:27:59 INFO: nxt.forceValidate = "false"
+2017-08-06 16:27:59 INFO: nxt.myPlatform = "PC"
+2017-08-06 16:27:59 INFO: nxt.myAddress = "175.197.249.207"
+2017-08-06 16:27:59 INFO: nxt.peerServerPort = "15011"
+2017-08-06 16:27:59 INFO: nxt.shareMyAddress = "true"
+2017-08-06 16:27:59 INFO: nxt.myHallmark not defined
+2017-08-06 16:27:59 INFO: nxt.wellKnownPeers = "47.74.131.167"
+2017-08-06 16:27:59 INFO: nxt.knownBlacklistedPeers not defined
+2017-08-06 16:27:59 INFO: nxt.maxNumberOfConnectedPublicPeers = "20"
+2017-08-06 16:27:59 INFO: nxt.connectTimeout = "4000"
+2017-08-06 16:27:59 INFO: nxt.readTimeout = "8000"
+2017-08-06 16:27:59 INFO: nxt.enableHallmarkProtection = "true"
+2017-08-06 16:27:59 INFO: nxt.pushThreshold = "0"
+2017-08-06 16:27:59 INFO: nxt.pullThreshold = "0"
+2017-08-06 16:27:59 INFO: nxt.blacklistingPeriod = "600000"
+2017-08-06 16:27:59 INFO: nxt.communicationLoggingMask = "0"
+2017-08-06 16:27:59 INFO: nxt.sendToPeersLimit = "10"
+2017-08-06 16:27:59 INFO: nxt.usePeersDb = "true"
+2017-08-06 16:28:00 INFO: nxt.savePeers = "true"
+2017-08-06 16:28:00 INFO: nxt.peerServerHost = "0.0.0.0"
+2017-08-06 16:28:00 INFO: nxt.peerServerIdleTimeout = "30000"
+2017-08-06 16:28:00 INFO: nxt.enablePeerServerDoSFilter = "true"
+2017-08-06 16:28:00 INFO: nxt.peerServerDoSFilter.maxRequestsPerSec = "30"
+2017-08-06 16:28:00 INFO: nxt.peerServerDoSFilter.delayMs = "1000"
+2017-08-06 16:28:00 INFO: nxt.peerServerDoSFilter.maxRequestMs = "300000"
+2017-08-06 16:28:00 INFO: nxt.allowedBotHosts = "*;127.0.0.1; localhost; [0:0:0:0:0:0:0:1];"
+2017-08-06 16:28:00 INFO: nxt.enableAPIServer = "true"
+2017-08-06 16:28:00 INFO: nxt.apiServerPort = "14725"
+2017-08-06 16:28:00 INFO: nxt.apiServerHost = "0.0.0.0"
+2017-08-06 16:28:00 INFO: nxt.apiSSL = "false"
+2017-08-06 16:28:00 INFO: nxt.apiServerIdleTimeout = "30000"
+2017-08-06 16:28:00 INFO: nxt.apiResourceBase = "html/ui"
+2017-08-06 16:28:00 INFO: nxt.javadocResourceBase = "html/doc"
+2017-08-06 16:28:00 INFO: nxt.apiServerCORS = "false"
+2017-08-06 16:28:00 INFO: nxt.allowedUserHosts = "*;127.0.0.1; localhost; [0:0:0:0:0:0:0:1];"
+2017-08-06 16:28:00 INFO: nxt.enableUIServer = "true"
+2017-08-06 16:28:00 INFO: nxt.uiServerPort = "25011"
+2017-08-06 16:28:00 INFO: nxt.uiServerHost = "0.0.0.0"
+2017-08-06 16:28:00 INFO: nxt.uiSSL = "false"
+2017-08-06 16:28:00 INFO: nxt.uiServerIdleTimeout = "30000"
+2017-08-06 16:28:00 INFO: nxt.uiResourceBase = "html/nrs"
+2017-08-06 16:28:00 INFO: nxt.javadocResourceBase = "html/doc"
+2017-08-06 16:28:00 INFO: nxt.uiServerCORS = "false"
+2017-08-06 16:28:00 INFO: nxt.debugTraceQuote = """
+2017-08-06 16:28:00 INFO: nxt.debugTraceSeparator = "	"
+2017-08-06 16:28:00 INFO: nxt.debugLogUnconfirmed = "false"
+2017-08-06 16:28:00 INFO: nxt.debugTraceAccounts not defined
+2017-08-06 16:28:00 INFO: nxt.debugTraceLog = "nxl-trace.csv"
+2017-08-06 16:28:00 INFO: Genesis block already in database
+2017-08-06 16:28:00 INFO: Scanning blockchain...
+2017-08-06 16:28:00 INFO: processed block 0
+2017-08-06 16:28:00 INFO: ...done
+2017-08-06 16:28:00 INFO: Started peer networking server at 0.0.0.0:15011
+2017-08-06 16:28:00 INFO: Started API server at 0.0.0.0:14725
+2017-08-06 16:28:00 INFO: Started user interface server at 0.0.0.0:25011
+2017-08-06 16:28:00 INFO: NXL Lite server 1.1.6 started successfully.
+2017-08-06 16:28:00 INFO: nxt.apiServerEnforcePOST = "true"
