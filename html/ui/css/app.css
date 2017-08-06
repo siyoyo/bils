@@ -2100,8 +2100,7 @@ body > .header .logo .icon {
 */
 /* ADD THIS CLASS TO THE <HTML> TAG */
 .lockscreen {
-  background-color: #9DC7A9; /*WESLEY */
-  background: url(../img/blur-background.jpg) repeat center center fixed;
+
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -2545,11 +2544,6 @@ background:#33363f
 	-moz-box-shadow: 0px 2px 10px rgba(50, 50, 50, 0.5);
 	box-shadow: 0px 2px 10px rgba(50, 50, 50, 0.5);
 	
-}
-
-body {
-	
-	color: black !important;
 }
 
 .page {

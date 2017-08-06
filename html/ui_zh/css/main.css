@@ -703,8 +703,8 @@ body > .header {
 */
 /* ADD THIS CLASS TO THE <HTML> TAG */
 .lockscreen {
-  background-color: #9DC7A9; /*WESLEY */
-  background: url(../img/blur-background.jpg) repeat center center fixed;
+
+
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
