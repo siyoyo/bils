@@ -2,7 +2,7 @@
 <html class="lockscreen">
     <head>
         <meta charset="UTF-8">
-        <title>Bilshares Wallet</title>
+        <title>NXL Wallet</title>
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -31,7 +31,7 @@
                 </a>
                 <div class="navbar-right">
                     <ul class="nav navbar-nav">
-                    	<li class="dropdown"><a href="#" style="font-weight:bold;" data-toggle="modal" data-target="#send_money_modal">发送BILS</a></li>
+                    	<li class="dropdown"><a href="#" style="font-weight:bold;" data-toggle="modal" data-target="#send_money_modal">发送NXL</a></li>
                     	<li class="dropdown"><a href="#" style="font-weight:bold;" data-toggle="modal" data-target="#send_message_modal">发送信息</a></li>
 	                    <li class="dropdown"><a href="#" style="font-weight:bold;" data-toggle="modal" data-target="#generate_token_modal">创建令牌</a></li>
 						<li class="dropdown"><a href="#" style="font-weight:bold;" class="goto-page" data-page="settings">设置</a></li>
@@ -40,11 +40,11 @@
                                 <i class="fa fa-question-circle"></i>
                             </a>
                             <ul class="dropdown-menu" role="menu">
-                            	<li><a role="menuitem" tabindex="-1" href="http://www.bilshares.com/" target="_blank">BilShares Website</a></li>
-								<li><a role="menuitem" tabindex="-1" href="http://bbs.bilshares.com/" target="_blank">Bils Forum</a></li>
-								<li><a role="menuitem" tabindex="-1" href="https://wiki.bilshares.com/" target="_blank">Bils Wiki</a></li>
-								<li><a role="menuitem" tabindex="-1" href="https://wiki.bilshares.com/wiki/Bils_client_interface" target="_blank">Interface Tutorial</a></li>
-								<li><a role="menuitem" tabindex="-1" href="https://wiki.bilshares.com/wiki/Asset_Exchange" target="_blank">Asset Exchange Tutorial</a></li>
+                            	<li><a role="menuitem" tabindex="-1" href="http://www.NXL.com/" target="_blank">NXL Website</a></li>
+								<li><a role="menuitem" tabindex="-1" href="http://bbs.NXL.com/" target="_blank">NXL Forum</a></li>
+								<li><a role="menuitem" tabindex="-1" href="https://wiki.NXL.com/" target="_blank">NXL Wiki</a></li>
+								<li><a role="menuitem" tabindex="-1" href="https://wiki.NXL.com/wiki/NXL_client_interface" target="_blank">Interface Tutorial</a></li>
+								<li><a role="menuitem" tabindex="-1" href="https://wiki.NXL.com/wiki/Asset_Exchange" target="_blank">Asset Exchange Tutorial</a></li>
                             </ul>
 						</li>
                         <li class="dropdown" id="logout_button_container">
@@ -73,7 +73,7 @@
 										<li role="presentation" class="copy_link"><a role="menuitem" tabindex="-1" href="#" data-type="account_rs">复制帐号ID</a></li>
 										<li role="presentation" class="copy_link"><a role="menuitem" tabindex="-1" href="#" data-type="account_id">复制数字帐号ID</a></li>
 										<li role="presentation" class="remote_only copy_link"><a role="menuitem" tabindex="-1" href="#" data-type="message_link">复制 '发送消息' 链接</a></li>
-										<li role="presentation" class="remote_only copy_link"><a role="menuitem" tabindex="-1" href="#" data-type="send_link">复制 '发送BILS' 链接</a></li>
+										<li role="presentation" class="remote_only copy_link"><a role="menuitem" tabindex="-1" href="#" data-type="send_link">复制 '发送NXL' 链接</a></li>
 									</ul>
 								</div>
 	                            <a href="#" id="forging_indicator" class="forging" style="display:none;font-size:13px;"><i class="fa fa-circle" style="font-size:12px;"></i> <span>锻造中</span></a>
@@ -115,7 +115,7 @@
 	                <section class="content-header"><h1>主面板</h1></section>
 	                
 	                <section class="content">
-	                	<div class="alert-danger alert alert-no-icon" id="dashboard_message" style="display:none;padding:5px;padding-left:5px;margin-bottom:15px;"><b>注意!</b>: 您的帐号缺少公钥! 这意味着您的帐号不像其它帐号一样受到保护. 您必须向外发送至少一个币来修复该问题 (<a href="#" data-toggle="modal" data-target="#send_message_modal">发送信息</a>, <a href="#" data-toggle="modal" data-target="#register_alias_modal">购买一个别名</a>, <a href="#" data-toggle="modal" data-target="#send_money_modal">发送BILS</a>, ...)</div>
+	                	<div class="alert-danger alert alert-no-icon" id="dashboard_message" style="display:none;padding:5px;padding-left:5px;margin-bottom:15px;"><b>注意!</b>: 您的帐号缺少公钥! 这意味着您的帐号不像其它帐号一样受到保护. 您必须向外发送至少一个币来修复该问题 (<a href="#" data-toggle="modal" data-target="#send_message_modal">发送信息</a>, <a href="#" data-toggle="modal" data-target="#register_alias_modal">购买一个别名</a>, <a href="#" data-toggle="modal" data-target="#send_money_modal">发送NXL</a>, ...)</div>
 	               
 	                    <div class="row">
 	                        <div class="col-lg-3 col-xs-6">
@@ -532,7 +532,7 @@
 							        <th>占比</th>
 							        <th>最低卖价</th>
 							        <th>最高买价</th>
-							        <th>以BILS计价</th>
+							        <th>以NXL计价</th>
 							        <th>转让</th>
 							    </tr>
 							    </thead>
@@ -610,13 +610,13 @@
 							                	<div class="col-md-6">
 								                	<div class="box box-solid box-info collapsed-box" id="buy_asset_box">
 								                		<div class="box-header" style="background-color:#DFF0D9;color: #48AB6C;">
-								                	   	<h3 class="box-title">用BILS买<span class="asset_name"></span></h3>
+								                	   	<h3 class="box-title">用NXL买<span class="asset_name"></span></h3>
 								                	       <div class="box-tools pull-right">
 								                	       	<button class="btn btn-info btn-sm" style="background-color: #48AB6C"><i class="fa fa-plus"></i></button>
 								                	        </div>
 								                	    </div>
 								                	    <div class="box-body no-padding" style="display:none">
-								                	    	<div style="background-color:#DFF0D9;color: #666;padding-left:10px;padding-right: 10px;padding-top: 0px;padding-bottom:3px;" id="buy_automatic_price"><strong>余额</strong>: <span id="your_nxt_balance"></span> BILS</div>
+								                	    	<div style="background-color:#DFF0D9;color: #666;padding-left:10px;padding-right: 10px;padding-top: 0px;padding-bottom:3px;" id="buy_automatic_price"><strong>余额</strong>: <span id="your_nxt_balance"></span> NXL</div>
 								                	    
 									                	    <form role="form" class="form-horizontal" style="padding: 10px;;max-width:350px;margin-left:auto;margin-right:auto;">
 									                	    	<div style="margin-left:-20px">
@@ -634,7 +634,7 @@
 										                	    		<div class="col-sm-9">
 										                	    			<div class="input-group">
 										                	    				<input id="buy_asset_price" type="text" value="0" name="buy_asset_price" class="form-control" data-type="buy" />
-										                	    				<span class="input-group-addon">BILS / <span class="asset_name"></span></span>
+										                	    				<span class="input-group-addon">NXL / <span class="asset_name"></span></span>
 										                	    			</div>
 										                	    		</div>
 										                	    	</div>
@@ -643,7 +643,7 @@
 										                	    		<div class="col-sm-9">
 										                	    			<div class="input-group">
 										                	    				<input type="text" name="buy_asset_total" id="buy_asset_total" readonly value="0" class="form-control disabled" />
-										                	    				<span class="input-group-addon">BILS</span>
+										                	    				<span class="input-group-addon">NXL</span>
 										                	    			</div>
 										                	    		</div>
 										                	    	</div>
@@ -652,14 +652,14 @@
 										                	    		<div class="col-sm-9">
 										                	    			<div class="input-group">
 										                	    				<input type="text" id="buy_asset_fee" name="buy_asset_fee" value="1" class="form-control" />
-										                	    				<span class="input-group-addon">BILS</span>
+										                	    				<span class="input-group-addon">NXL</span>
 										                	    			</div>
 										                	    		</div>
 										                	    	</div>
 										                	    	<div class="form-group form-group-last">
 										                	    		<div class="col-sm-3"></div>
 										                	    		<div class="col-sm-9">
-										                	    			<button type="button" class="btn btn-primary btn-lg btn-block" id="buy_asset_button" data-toggle="modal" data-target="#asset_order_modal" data-asset="" data-type="Buy">买 (BILS → <span class="asset_name"></span>)</button>
+										                	    			<button type="button" class="btn btn-primary btn-lg btn-block" id="buy_asset_button" data-toggle="modal" data-target="#asset_order_modal" data-asset="" data-type="Buy">买 (NXL → <span class="asset_name"></span>)</button>
 										                	    		</div>
 										                	    	</div>
 									                	    	</div>
@@ -694,7 +694,7 @@
 							                    <div class="col-md-6">
 								                    <div class="box box-solid box-info collapsed-box" id="sell_asset_box">
 								                        <div class="box-header" style="background:#F2DEDE;color:#ED4348;">
-								                            <h3 class="box-title">用BILS卖 <span class="asset_name"></span></h3>
+								                            <h3 class="box-title">用NXL卖 <span class="asset_name"></span></h3>
 								                            <div class="box-tools pull-right">
 								                                <button class="btn btn-info btn-sm" style="background-color: #ED4348"> <i class="fa fa-plus"></i></button>
 								                            </div>
@@ -718,7 +718,7 @@
 										                        		<div class="col-sm-9">
 										                        			<div class="input-group">
 										                        				<input id="sell_asset_price" type="text" value="0" name="sell_asset_price" class="form-control" data-type="sell" />
-										                        				<span class="input-group-addon">BILS / <span class="asset_name"></span></span>
+										                        				<span class="input-group-addon">NXL / <span class="asset_name"></span></span>
 										                        			</div>
 										                        		</div>
 										                        	</div>
@@ -727,7 +727,7 @@
 										                        		<div class="col-sm-9">
 										                        			<div class="input-group">
 										                        				<input type="text" name="sell_asset_total" id="sell_asset_total" readonly value="0" class="form-control disabled" />
-										                        				<span class="input-group-addon">BILS</span>
+										                        				<span class="input-group-addon">NXL</span>
 										                        			</div>
 										                        		</div>
 										                        	</div>
@@ -736,14 +736,14 @@
 										                        		<div class="col-sm-9">
 										                        			<div class="input-group">
 										                        				<input type="text" id="sell_asset_fee" name="sell_asset_fee" value="1" class="form-control" />
-										                        				<span class="input-group-addon">BILS</span>
+										                        				<span class="input-group-addon">NXL</span>
 										                        			</div>
 										                        		</div>
 										                        	</div>
 										                        	<div class="form-group form-group-last">
 										                        		<div class="col-sm-3"></div>
 										                        		<div class="col-sm-9">
-										                        			<button type="button" class="btn btn-primary btn-lg btn-block" id="sell_asset_button" data-toggle="modal" data-target="#asset_order_modal" data-asset="" data-type="Sell">卖 (<span class="asset_name"></span> → BILS)</button>
+										                        			<button type="button" class="btn btn-primary btn-lg btn-block" id="sell_asset_button" data-toggle="modal" data-target="#asset_order_modal" data-asset="" data-type="Sell">卖 (<span class="asset_name"></span> → NXL)</button>
 										                        		</div>
 										                        	</div>
 										                        </div>
@@ -878,14 +878,14 @@
 							            <label for="settings_amount_warning">高金额提醒</label>
 	                        			<div class="input-group" style="width:150px">
 							          		<input type="text" name="amount_warning" id="settings_amount_warning" class="form-control" />
-	                        				<span class="input-group-addon">BILS</span>
+	                        				<span class="input-group-addon">NXL</span>
 	                        			</div>
 							        </div>
 							        <div class="form-group">
 							            <label for="settings_fee_warning">高费用提醒</label>
 	                        			<div class="input-group" style="width:150px">
 							          		<input type="text" name="fee_warning" id="settings_fee_warning" class="form-control" />
-	                        				<span class="input-group-addon">BILS</span>
+	                        				<span class="input-group-addon">NXL</span>
 	                        			</div>
 							        </div>
 							        <div class="form-group">
@@ -1304,7 +1304,7 @@
 		            </div>
 		            
 					<div class="panel panel-default" id="welcome_panel" style="display:none;max-width:500px;">
-		                <div class="panel-heading"><span class="glyphicon glyphicon-lock"></span> 欢迎加入BILS</div>
+		                <div class="panel-heading"><span class="glyphicon glyphicon-lock"></span> 欢迎加入NXL</div>
 		                <div class="panel-body">
 		               		<button class="btn btn-primary" id="registration_cancel" onClick="NRS.showLoginScreen();return false;">你是回头客?来嘛来嘛</button>
 					   		&nbsp;&nbsp;
@@ -1372,7 +1372,7 @@
 			        					
 			        					<textarea style="width:100%;height:50px;margin-bottom:10px;" rows="2"></textarea>
 		        					
-			        					<p>请记下这框框里面的内容，包括空格与文字大小写，这将是你BILS帐号的密码.</p>
+			        					<p>请记下这框框里面的内容，包括空格与文字大小写，这将是你NXL帐号的密码.</p>
 			        						        					
 			        					<div class="callout callout-danger"><strong>强调，注意！！！</strong>: 别忘了你的密码，要是搞丢了，你帐号就进不去了!</div>
 			        				
@@ -1721,7 +1721,7 @@
 							</div>
 							<div class="form-group">
 								<label for="add_contact_account_id">帐户ID</label>
-								<input type="text" class="form-control" name="account_id" id="add_contact_account_id" placeholder="BILS Account ID" tabindex="2" />
+								<input type="text" class="form-control" name="account_id" id="add_contact_account_id" placeholder="NXL Account ID" tabindex="2" />
 							</div>
 							<div class="form-group">
 								<label for="add_contact_email">邮件地址</label>
@@ -1762,7 +1762,7 @@
 							</div>
 							<div class="form-group">
 								<label for="update_contact_account_id">帐户ID</label>
-								<input type="text" class="form-control" name="account_id" id="update_contact_account_id" placeholder="BILS Account ID" tabindex="2" />
+								<input type="text" class="form-control" name="account_id" id="update_contact_account_id" placeholder="NXL Account ID" tabindex="2" />
 							</div>
 							<div class="form-group">
 								<label for="update_contact_email">邮件地址</label>
@@ -1851,7 +1851,7 @@
 							<div class="row">
 								<div class="col-xs-6 col-sm-6 col-md-6">
 									<div class="form-group">
-										<label for="issue_asset_fee">费用 <i class="fa fa-exclamation-circle show_popover" data-content="授权资产的最小费用为1,000 BILS" data-container="body" style="color:red"></i></label>
+										<label for="issue_asset_fee">费用 <i class="fa fa-exclamation-circle show_popover" data-content="授权资产的最小费用为1,000 NXL" data-container="body" style="color:red"></i></label>
 																				
 										<input type="number" name="feeNXT" id="issue_asset_fee" class="form-control" placeholder="Fee" step="any" min="1000" data-default="1000" value="1000" tabindex="6">
 									</div>
@@ -2033,7 +2033,7 @@
 		    	<div class="modal-content">
 		      		<div class="modal-header">
 		        		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-		        		<h4 class="modal-title">发送BILS</h4>
+		        		<h4 class="modal-title">发送NXL</h4>
 		      		</div>
 			      	<div class="modal-body">			
 						<form role="form">
@@ -2469,7 +2469,7 @@
 						<div class="user_info_modal_content data-never-loading" id="user_info_modal_actions" style="display:none;">
 							<div class="row">
 								<div class="col-xs-6 col-md-6" style="margin-left:auto;margin-right:auto;float:none;">
-									<button type="button" class="btn btn-default btn-lg btn-block" data-toggle="modal" data-target="#send_money_modal" data-account="">发送BILS</button>
+									<button type="button" class="btn btn-default btn-lg btn-block" data-toggle="modal" data-target="#send_money_modal" data-account="">发送NXL</button>
 									<button type="button" class="btn btn-default btn-lg btn-block" data-toggle="modal" data-target="#send_message_modal" data-account="">发送信息</button>
 									<button type="button" id="user_info_modal_add_as_contact" class="btn btn-default btn-lg btn-block" data-toggle="modal" data-target="#add_contact_modal" data-account="">添加为联系人</button>
 								</div>
@@ -2747,7 +2747,7 @@
 		    <ul class="dropdown-menu" data-container="body" role="menu" style="display:block;position:static;margin-bottom:5px;">
 		    	<li><a tabindex="-1" href="#" data-option="account_info">帐户信息</a></li>
 		        <li><a tabindex="-1" href="#" data-option="add_contact">添加联系人</a></li>
-				<li><a tabindex="-1" href="#" data-option="send_nxt">发送BILS</a></li>
+				<li><a tabindex="-1" href="#" data-option="send_nxt">发送NXL</a></li>
 		    </ul>
 		</div>
 		
@@ -2755,7 +2755,7 @@
 		    <ul class="dropdown-menu" data-container="body" role="menu" style="display:block;position:static;margin-bottom:5px;">
 		    	<li><a tabindex="-1" href="#" data-option="account_info">帐户信息</a></li>
 		        <li><a tabindex="-1" href="#" data-option="update_contact">更新联系人</a></li>
-				<li><a tabindex="-1" href="#" data-option="send_nxt">发送BILS</a></li>
+				<li><a tabindex="-1" href="#" data-option="send_nxt">发送NXL</a></li>
 		    </ul>
 		</div>
 		

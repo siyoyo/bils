@@ -8,7 +8,7 @@ public final class Constants {
     public static final int BLOCK_HEADER_LENGTH = 232;
     public static final int MAX_NUMBER_OF_TRANSACTIONS = 255;
     public static final int MAX_PAYLOAD_LENGTH = MAX_NUMBER_OF_TRANSACTIONS * 160;
-    public static final long MAX_BALANCE_NXT = 1000000000;
+    public static final long MAX_BALANCE_NXT = 2000000000;
     public static final long ONE_NXT = 100000000;
     public static final long MAX_BALANCE_NQT = MAX_BALANCE_NXT * ONE_NXT;
     public static final long INITIAL_BASE_TARGET = 153722867;

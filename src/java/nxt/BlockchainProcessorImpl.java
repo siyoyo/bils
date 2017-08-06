@@ -33,13 +33,9 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 final class BlockchainProcessorImpl implements BlockchainProcessor {
-	/*
-    private static final byte[] CHECKSUM_TRANSPARENT_FORGING = new byte[]{27, -54, -59, -98, 49, -42, 48, -68, -112, 49, 41, 94, -41, 78, -84, 27, -87, -22, -28, 36, -34, -90, 112, -50, -9, 5, 89, -35, 80, -121, -128, 112};
-    private static final byte[] CHECKSUM_NQT_BLOCK = Constants.isTestnet ? new byte[]{-126, -117, -94, -16, 125, -94, 38, 10, 11, 37, -33, 4, -70, -8, -40, -80, 18, -21, -54, -126, 109, -73, 63, -56, 67, 59, -30, 83, -6, -91, -24, 34}
-            : new byte[]{-125, 17, 63, -20, 90, -98, 52, 114, 7, -100, -20, -103, -50, 76, 46, -38, -29, -43, -43, 45, 81, 12, -30, 100, -67, -50, -112, -15, 22, -57, 84, -106};
-    */
-	private static final byte[] CHECKSUM_TRANSPARENT_FORGING = new byte[]{-112, 14, -29, 88, 88, -48, 53, -83, -23, 64, 31, -77, -59, 18, 123, 52, 118, 107, 119, 95, -35, -113, 94, 6, 84, 40, 110, -87, -50, 104, 38, 101};
-    private static final byte[] CHECKSUM_NQT_BLOCK = new byte[]{-112, 14, -29, 88, 88, -48, 53, -83, -23, 64, 31, -77, -59, 18, 123, 52, 118, 107, 119, 95, -35, -113, 94, 6, 84, 40, 110, -87, -50, 104, 38, 101};
+                                                      
+	private static final byte[] CHECKSUM_TRANSPARENT_FORGING = new byte[]{97, -79, -33, -88, 25, -59, -126, 96, -80, 1, 18, -5, 63, 124, 92, -9, -47, 3, -59, -88, 115, 80, 91, 0, 25, 0, 48, -99, -5, -124, -37, -77};
+    private static final byte[] CHECKSUM_NQT_BLOCK = new byte[]{97, -79, -33, -88, 25, -59, -126, 96, -80, 1, 18, -5, 63, 124, 92, -9, -47, 3, -59, -88, 115, 80, 91, 0, 25, 0, 48, -99, -5, -124, -37, -77};
     private static final BlockchainProcessorImpl instance = new BlockchainProcessorImpl();
 
     static BlockchainProcessorImpl getInstance() {
@@ -420,7 +416,7 @@ final class BlockchainProcessorImpl implements BlockchainProcessor {
         }
     }
 
-    private void addGenesisBlock() {
+    private void addGenesisBlock() {					
         if (BlockDb.hasBlock(Genesis.GENESIS_BLOCK_ID)) {
             Logger.logMessage("Genesis block already in database");
             return;
@@ -433,7 +429,7 @@ final class BlockchainProcessorImpl implements BlockchainProcessor {
                 TransactionImpl transaction = new TransactionImpl(TransactionType.Payment.ORDINARY, 0, (short) 0, Genesis.CREATOR_PUBLIC_KEY,
                         Genesis.GENESIS_RECIPIENTS[i], Genesis.GENESIS_AMOUNTS[i] * Constants.ONE_NXT, 0, (String)null, Genesis.GENESIS_SIGNATURES[i]);
                 transactionsMap.put(transaction.getId(), transaction);
-            }
+			}
 
             MessageDigest digest = Crypto.sha256();
             for (Transaction transaction : transactionsMap.values()) {
@@ -444,7 +440,6 @@ final class BlockchainProcessorImpl implements BlockchainProcessor {
                     Genesis.CREATOR_PUBLIC_KEY, new byte[64], Genesis.GENESIS_BLOCK_SIGNATURE, null, new ArrayList<>(transactionsMap.values()));
 
             genesisBlock.setPrevious(null);
-
             addBlock(genesisBlock);
 
         } catch (NxtException.ValidationException e) {
@@ -490,7 +485,7 @@ final class BlockchainProcessorImpl implements BlockchainProcessor {
                     if (CHECKSUM_TRANSPARENT_FORGING == null) {
                         Logger.logMessage("Checksum calculated:\n" + Arrays.toString(checksum));
                     } else if (!Arrays.equals(checksum, CHECKSUM_TRANSPARENT_FORGING)) {
-                        Logger.logMessage("Checksum failed at block " + Constants.TRANSPARENT_FORGING_BLOCK);
+					    Logger.logMessage("Checksum failed at block " + Constants.TRANSPARENT_FORGING_BLOCK);
                         throw new BlockNotAcceptedException("Checksum failed");
                     } else {
                         Logger.logMessage("Checksum passed at block " + Constants.TRANSPARENT_FORGING_BLOCK);
@@ -501,7 +496,7 @@ final class BlockchainProcessorImpl implements BlockchainProcessor {
                     byte[] checksum = calculateTransactionsChecksum();
                     if (CHECKSUM_NQT_BLOCK == null) {
                         Logger.logMessage("Checksum calculated:\n" + Arrays.toString(checksum));
-                    } else if (!Arrays.equals(checksum, CHECKSUM_NQT_BLOCK)) {
+                    } else if (!Arrays.equals(checksum, CHECKSUM_NQT_BLOCK)) {							
                         Logger.logMessage("Checksum failed at block " + Constants.NQT_BLOCK);
                         throw new BlockNotAcceptedException("Checksum failed");
                     } else {
