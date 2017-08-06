@@ -3,8 +3,8 @@ Running the Bils software:
 Dependencies: Java 7 or later needs to be installed first. Only the Oracle JVM
 has been tested and supported.
 
-There is no installation needed. Unpack the bils-client.zip package and open a
-shell in the resulting bils directory. Execute the run.sh script if using Linux,
+There is no installation needed. Unpack the nxl-client.zip package and open a
+shell in the resulting nxl directory. Execute the run.sh script if using Linux,
 or run.bat if using Windows. This will start a java server process, which will
 begin logging its activities to the console. The initialization takes a few
 seconds. When it is ready, you should see the message "Bils server 1.0.0 started
@@ -48,10 +48,10 @@ The user interface is available on port 14725. This port also accepts http API
 requests which other Bils client applications could use.
 
 The blockchain is stored on disk using the H2 embedded database, inside the
-bils_db directory. When upgrading, you should not delete the old bils_db
+nxl_db directory. When upgrading, you should not delete the old nxl_db
 directory, upgrades always include code that can upgrade old database files to
 the new version whenever needed. But there is no harm if you do delete the
-bils_db, except that it will take some extra time to download the blockchain
+nxl_db, except that it will take some extra time to download the blockchain
 from scratch.
 
 The default Bils client does not store any wallet-type file on disk. Unlike
@@ -62,8 +62,8 @@ sure it is long and random. A weak password will result in your funds being
 stolen immediately.
 
 The java process logs its activities and error messages to the standard output
-which you see in the console window, but also to a file bils.log, which gets
-overwritten at restart. In case of an error, the bils.log file may contain
+which you see in the console window, but also to a file nxl.log, which gets
+overwritten at restart. In case of an error, the nxl.log file may contain
 helpful information, so include its contents when submitting a bug report.
 
 In addition to the default user interface at http://localhost:14725 , the
@@ -87,6 +87,6 @@ Compiling:
 
 The source is included in the src subdirectory. To compile it on linux, just
 run the enclosed compile.sh script. This will compile all java classes and
-package them in an bils.jar file, replacing the existing one.
+package them in an nxl.jar file, replacing the existing one.
 
 

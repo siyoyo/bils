@@ -1,0 +1,18 @@
+08-06 13:49:26 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "VERSION" not found; SQL statement:
+SELECT next_update FROM version [42102-176]
+08-06 15:35:16 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:178)
+	at org.h2.message.DbException.get(DbException.java:154)
+	at org.h2.message.DbException.get(DbException.java:143)
+	at org.h2.jdbc.JdbcConnection.checkClosed(JdbcConnection.java:1468)
+	at org.h2.jdbcx.JdbcXAConnection$PooledJdbcConnection.checkClosed(JdbcXAConnection.java:486)
+	at org.h2.jdbc.JdbcConnection.checkClosedForWrite(JdbcConnection.java:1453)
+	at org.h2.jdbc.JdbcConnection.rollback(JdbcConnection.java:486)
+	at org.h2.jdbcx.JdbcXAConnection$PooledJdbcConnection.close(JdbcXAConnection.java:466)
+	at nxt.Db.shutdown(Db.java:44)
+	at nxt.Nxt.shutdown(Nxt.java:145)
+	at nxt.Nxt$1.run(Nxt.java:124)
+	at java.lang.Thread.run(Thread.java:748)

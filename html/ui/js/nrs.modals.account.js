@@ -53,7 +53,7 @@ var NRS = (function(NRS, $, undefined) {
 		if (account.unconfirmedBalanceNQT == "0") {
 			$("#user_info_modal_account_balance").html("0");
 		} else {
-			$("#user_info_modal_account_balance").html(NRS.formatAmount(account.unconfirmedBalanceNQT) + " BILS");
+			$("#user_info_modal_account_balance").html(NRS.formatAmount(account.unconfirmedBalanceNQT) + " NXL");
 		}
 
 		if (account.name) {
@@ -213,7 +213,7 @@ var NRS = (function(NRS, $, undefined) {
 									}
 								}
 
-								if (/^NXT\-/i.test(NRS.userInfoModal.user)) {
+								if (/^NXL\-/i.test(NRS.userInfoModal.user)) {
 									var receiving = (transaction.recipientRS == NRS.userInfoModal.user);
 								} else {
 									var receiving = (transaction.recipient == NRS.userInfoModal.user);

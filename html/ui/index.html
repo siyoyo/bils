@@ -2,7 +2,7 @@
 <html class="lockscreen">
     <head>
         <meta charset="UTF-8">
-        <title>Bilshares Wallet</title>
+        <title>NXL Wallet</title>
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -31,22 +31,10 @@
                 </a>
                 <div class="navbar-right">
                     <ul class="nav navbar-nav">
-                    	<li class="dropdown"><a href="#" style="font-weight:bold;" data-toggle="modal" data-target="#send_money_modal">Send BILS</a></li>
+                    	<li class="dropdown"><a href="#" style="font-weight:bold;" data-toggle="modal" data-target="#send_money_modal">Send NXL</a></li>
                     	<li class="dropdown"><a href="#" style="font-weight:bold;" data-toggle="modal" data-target="#send_message_modal">Send Message</a></li>
 	                    <li class="dropdown"><a href="#" style="font-weight:bold;" data-toggle="modal" data-target="#generate_token_modal">Generate Token</a></li>
 						<li class="dropdown"><a href="#" style="font-weight:bold;" class="goto-page" data-page="settings">Settings</a></li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="fa fa-question-circle"></i>
-                            </a>
-                            <ul class="dropdown-menu" role="menu">
-                            	<li><a role="menuitem" tabindex="-1" href="http://www.bilshares.com/" target="_blank">BilShares Website</a></li>
-								<li><a role="menuitem" tabindex="-1" href="https://bbs.bilshares.com/" target="_blank">Bils Forum</a></li>
-								<li><a role="menuitem" tabindex="-1" href="https://wiki.bilshares.com/" target="_blank">Bils Wiki</a></li>
-								<li><a role="menuitem" tabindex="-1" href="https://wiki.bilshares.com/wiki/bils_client_interface" target="_blank">Interface Tutorial</a></li>
-								<li><a role="menuitem" tabindex="-1" href="https://wiki.bilshares.com/wiki/Asset_Exchange" target="_blank">Asset Exchange Tutorial</a></li>
-							</ul>
-						</li>
                         <li class="dropdown" id="logout_button_container">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="logout_button">
                                 <i class="fa fa-power-off"></i>
@@ -73,7 +61,7 @@
 										<li role="presentation" class="copy_link"><a role="menuitem" tabindex="-1" href="#" data-type="account_rs">Copy Account ID</a></li>
 										<li role="presentation" class="copy_link"><a role="menuitem" tabindex="-1" href="#" data-type="account_id">Copy Numeric Account	ID</a></li>
 										<li role="presentation" class="remote_only copy_link"><a role="menuitem" tabindex="-1" href="#" data-type="message_link">Copy 'Send Message' Link</a></li>
-										<li role="presentation" class="remote_only copy_link"><a role="menuitem" tabindex="-1" href="#" data-type="send_link">Copy 'Send Bilshares' Link</a></li>
+										<li role="presentation" class="remote_only copy_link"><a role="menuitem" tabindex="-1" href="#" data-type="send_link">Copy 'Send NXL' Link</a></li>
 									</ul>
 								</div>
 	                            <a href="#" id="forging_indicator" class="forging" style="display:none;font-size:13px;"><i class="fa fa-circle" style="font-size:12px;"></i> <span>Forging</span></a>
@@ -115,7 +103,7 @@
 	                <section class="content-header"><h1>Dashboard</h1></section>
 	                
 	                <section class="content">
-	                	<div class="alert-danger alert alert-no-icon" id="dashboard_message" style="display:none;padding:5px;padding-left:5px;margin-bottom:15px;"><b>Warning!</b>: Your account does not have a public key! This means it's not as protected as other accounts. You must make an outgoing transaction to fix this issue (<a href="#" data-toggle="modal" data-target="#send_message_modal">send a message</a>, <a href="#" data-toggle="modal" data-target="#register_alias_modal">buy an alias</a>, <a href="#" data-toggle="modal" data-target="#send_money_modal">send Bilshares</a>, ...)</div>
+	                	<div class="alert-danger alert alert-no-icon" id="dashboard_message" style="display:none;padding:5px;padding-left:5px;margin-bottom:15px;"><b>Warning!</b>: Your account does not have a public key! This means it's not as protected as other accounts. You must make an outgoing transaction to fix this issue (<a href="#" data-toggle="modal" data-target="#send_message_modal">send a message</a>, <a href="#" data-toggle="modal" data-target="#register_alias_modal">buy an alias</a>, <a href="#" data-toggle="modal" data-target="#send_money_modal">send NXL</a>, ...)</div>
 	               
 	                    <div class="row">
 	                        <div class="col-lg-3 col-xs-6">
@@ -532,7 +520,7 @@
 							        <th>Percentage</th>
 							        <th>Lowest Ask</th>
 							        <th>Highest Bid</th>
-							        <th>Value in BILS</th>
+							        <th>Value in NXL</th>
 							        <th>Transfer</th>
 							    </tr>
 							    </thead>
@@ -610,13 +598,13 @@
 							                	<div class="col-md-6">
 								                	<div class="box box-solid box-info collapsed-box" id="buy_asset_box">
 								                		<div class="box-header" style="background-color:#DFF0D9;color: #48AB6C;">
-								                	   	<h3 class="box-title">Buy <span class="asset_name"></span> with BILS</h3>
+								                	   	<h3 class="box-title">Buy <span class="asset_name"></span> with NXL</h3>
 								                	       <div class="box-tools pull-right">
 								                	       	<button class="btn btn-info btn-sm" style="background-color: #48AB6C"><i class="fa fa-plus"></i></button>
 								                	        </div>
 								                	    </div>
 								                	    <div class="box-body no-padding" style="display:none">
-								                	    	<div style="background-color:#DFF0D9;color: #666;padding-left:10px;padding-right: 10px;padding-top: 0px;padding-bottom:3px;" id="buy_automatic_price"><strong>Balance</strong>: <span id="your_nxt_balance"></span> BILS</div>
+								                	    	<div style="background-color:#DFF0D9;color: #666;padding-left:10px;padding-right: 10px;padding-top: 0px;padding-bottom:3px;" id="buy_automatic_price"><strong>Balance</strong>: <span id="your_nxt_balance"></span> NXL</div>
 								                	    
 									                	    <form role="form" class="form-horizontal" style="padding: 10px;;max-width:350px;margin-left:auto;margin-right:auto;">
 									                	    	<div style="margin-left:-20px">
@@ -634,7 +622,7 @@
 										                	    		<div class="col-sm-9">
 										                	    			<div class="input-group">
 										                	    				<input id="buy_asset_price" type="text" value="0" name="buy_asset_price" class="form-control" data-type="buy" />
-										                	    				<span class="input-group-addon">BILS / <span class="asset_name"></span></span>
+										                	    				<span class="input-group-addon">NXL / <span class="asset_name"></span></span>
 										                	    			</div>
 										                	    		</div>
 										                	    	</div>
@@ -643,7 +631,7 @@
 										                	    		<div class="col-sm-9">
 										                	    			<div class="input-group">
 										                	    				<input type="text" name="buy_asset_total" id="buy_asset_total" readonly value="0" class="form-control disabled" />
-										                	    				<span class="input-group-addon">BILS</span>
+										                	    				<span class="input-group-addon">NXL</span>
 										                	    			</div>
 										                	    		</div>
 										                	    	</div>
@@ -652,14 +640,14 @@
 										                	    		<div class="col-sm-9">
 										                	    			<div class="input-group">
 										                	    				<input type="text" id="buy_asset_fee" name="buy_asset_fee" value="1" class="form-control" />
-										                	    				<span class="input-group-addon">BILS</span>
+										                	    				<span class="input-group-addon">NXL</span>
 										                	    			</div>
 										                	    		</div>
 										                	    	</div>
 										                	    	<div class="form-group form-group-last">
 										                	    		<div class="col-sm-3"></div>
 										                	    		<div class="col-sm-9">
-										                	    			<button type="button" class="btn btn-primary btn-lg btn-block" id="buy_asset_button" data-toggle="modal" data-target="#asset_order_modal" data-asset="" data-type="Buy">Buy (BILS → <span class="asset_name"></span>)</button>
+										                	    			<button type="button" class="btn btn-primary btn-lg btn-block" id="buy_asset_button" data-toggle="modal" data-target="#asset_order_modal" data-asset="" data-type="Buy">Buy (NXL → <span class="asset_name"></span>)</button>
 										                	    		</div>
 										                	    	</div>
 									                	    	</div>
@@ -694,7 +682,7 @@
 							                    <div class="col-md-6">
 								                    <div class="box box-solid box-info collapsed-box" id="sell_asset_box">
 								                        <div class="box-header" style="background:#F2DEDE;color:#ED4348;">
-								                            <h3 class="box-title">Sell <span class="asset_name"></span> for BILS</h3>
+								                            <h3 class="box-title">Sell <span class="asset_name"></span> for NXL</h3>
 								                            <div class="box-tools pull-right">
 								                                <button class="btn btn-info btn-sm" style="background-color: #ED4348"> <i class="fa fa-plus"></i></button>
 								                            </div>
@@ -718,7 +706,7 @@
 										                        		<div class="col-sm-9">
 										                        			<div class="input-group">
 										                        				<input id="sell_asset_price" type="text" value="0" name="sell_asset_price" class="form-control" data-type="sell" />
-										                        				<span class="input-group-addon">BILS / <span class="asset_name"></span></span>
+										                        				<span class="input-group-addon">NXL / <span class="asset_name"></span></span>
 										                        			</div>
 										                        		</div>
 										                        	</div>
@@ -727,7 +715,7 @@
 										                        		<div class="col-sm-9">
 										                        			<div class="input-group">
 										                        				<input type="text" name="sell_asset_total" id="sell_asset_total" readonly value="0" class="form-control disabled" />
-										                        				<span class="input-group-addon">BILS</span>
+										                        				<span class="input-group-addon">NXL</span>
 										                        			</div>
 										                        		</div>
 										                        	</div>
@@ -736,14 +724,14 @@
 										                        		<div class="col-sm-9">
 										                        			<div class="input-group">
 										                        				<input type="text" id="sell_asset_fee" name="sell_asset_fee" value="1" class="form-control" />
-										                        				<span class="input-group-addon">BILS</span>
+										                        				<span class="input-group-addon">NXL</span>
 										                        			</div>
 										                        		</div>
 										                        	</div>
 										                        	<div class="form-group form-group-last">
 										                        		<div class="col-sm-3"></div>
 										                        		<div class="col-sm-9">
-										                        			<button type="button" class="btn btn-primary btn-lg btn-block" id="sell_asset_button" data-toggle="modal" data-target="#asset_order_modal" data-asset="" data-type="Sell">Sell (<span class="asset_name"></span> → BILS)</button>
+										                        			<button type="button" class="btn btn-primary btn-lg btn-block" id="sell_asset_button" data-toggle="modal" data-target="#asset_order_modal" data-asset="" data-type="Sell">Sell (<span class="asset_name"></span> → NXL)</button>
 										                        		</div>
 										                        	</div>
 										                        </div>
@@ -878,14 +866,14 @@
 							            <label for="settings_amount_warning">Max Amount Warning</label>
 	                        			<div class="input-group" style="width:150px">
 							          		<input type="text" name="amount_warning" id="settings_amount_warning" class="form-control" />
-	                        				<span class="input-group-addon">BILS</span>
+	                        				<span class="input-group-addon">NXL</span>
 	                        			</div>
 							        </div>
 							        <div class="form-group">
 							            <label for="settings_fee_warning">Max Fee Warning</label>
 	                        			<div class="input-group" style="width:150px">
 							          		<input type="text" name="fee_warning" id="settings_fee_warning" class="form-control" />
-	                        				<span class="input-group-addon">BILS</span>
+	                        				<span class="input-group-addon">NXL</span>
 	                        			</div>
 							        </div>
 							        <div class="form-group">
@@ -1278,7 +1266,7 @@
 			
 			<table id="center" style="display:none;width:100%;height:100%;">
 	        	<tr><td style="text-align:center;vertical-align:middle">
-		        	 <center><img src="img/nxt_logo.png" alt="Bils" width="320" height="88" style="margin-bottom:40px;opacity: 0.5;;" /></center>
+		        	 <center><img src="img/nxt_logo.png" alt="NXL" width="320" height="88" style="margin-bottom:40px;opacity: 0.5;;" /></center>
 		            	 
 		            <div id="login_panel">   
 		            	<div class="callout callout-danger" id="testnet_login" style="max-width:400px;min-width:400px;display:none;">Log in with your <strong>TestNet</strong> account - not your real one!</div>
@@ -1304,7 +1292,7 @@
 		            </div>
 		            
 					<div class="panel panel-default" id="welcome_panel" style="display:none;max-width:500px;">
-		                <div class="panel-heading"><span class="glyphicon glyphicon-lock"></span> Welcome to Bilshares</div>
+		                <div class="panel-heading"><span class="glyphicon glyphicon-lock"></span> Welcome to NXL</div>
 		                <div class="panel-body">
 		               		<button class="btn btn-primary" id="registration_cancel" onclick="NRS.showLoginScreen();return false;">Returning User?</button>
 					   		&nbsp;&nbsp;
@@ -1372,7 +1360,7 @@
 			        					
 			        					<textarea style="width:100%;height:50px;margin-bottom:10px;" rows="2"></textarea>
 		        					
-			        					<p>Please write down or memorize these 12 words (their order and capitalization matters - always lowercase). This secret phrase is needed in order to access your Bilshares account.</p>
+			        					<p>Please write down or memorize these 12 words (their order and capitalization matters - always lowercase). This secret phrase is needed in order to access your NXL account.</p>
 			        						        					
 			        					<div class="callout callout-danger"><strong>Attention</strong>: Don't ever disclose your secret phrase. If you lose it you lose access to your account!</div>
 			        				
@@ -1433,7 +1421,7 @@
 								<div class="col-xs-4 col-sm-4 col-md-4">
 									<div class="form-group">
 										<label for="lease_balance_fee">FEE</label>
-										<input type="number" name="feeNXT" id="lease_balance_fee" class="form-control" step="any" min="1" placeholder="Fee" data-default="1" value="1" tabindex="4">
+										<input type="number" name="feeNXL" id="lease_balance_fee" class="form-control" step="any" min="1" placeholder="Fee" data-default="1" value="1" tabindex="4">
 									</div>
 								</div>
 								<div class="col-xs-4 col-sm-4 col-md-4">
@@ -1536,7 +1524,7 @@
 								<div class="col-xs-6 col-sm-6 col-md-6">
 									<div class="form-group">
 										<label for="cancel_order_fee">FEE</label>
-										<input type="number" name="feeNXT" id="cancel_order_fee" class="form-control" step="any" min="1" placeholder="Fee" data-default="1" value="1" tabindex="2">
+										<input type="number" name="feeNXL" id="cancel_order_fee" class="form-control" step="any" min="1" placeholder="Fee" data-default="1" value="1" tabindex="2">
 									</div>
 								</div>
 								<div class="col-xs-6 col-sm-6 col-md-6">
@@ -1648,7 +1636,7 @@
 								<div class="col-xs-3 col-sm-3 col-md-3">
 									<div class="form-group">
 										<label for="transfer_asset_fee">FEE</label>
-										<input type="number" name="feeNXT" id="transfer_asset_fee" class="form-control" step="any" min="1" placeholder="Fee" data-default="1" value="1" tabindex="4">
+										<input type="number" name="feeNXL" id="transfer_asset_fee" class="form-control" step="any" min="1" placeholder="Fee" data-default="1" value="1" tabindex="4">
 									</div>
 								</div>
 								<div class="col-xs-3 col-sm-3 col-md-3">
@@ -1721,7 +1709,7 @@
 							</div>
 							<div class="form-group">
 								<label for="add_contact_account_id">ACCOUNT ID</label>
-								<input type="text" class="form-control" name="account_id" id="add_contact_account_id" placeholder="NXT Account ID" tabindex="2" />
+								<input type="text" class="form-control" name="account_id" id="add_contact_account_id" placeholder="NXL Account ID" tabindex="2" />
 							</div>
 							<div class="form-group">
 								<label for="add_contact_email">EMAIL ADDRESS</label>
@@ -1762,7 +1750,7 @@
 							</div>
 							<div class="form-group">
 								<label for="update_contact_account_id">ACCOUNT ID</label>
-								<input type="text" class="form-control" name="account_id" id="update_contact_account_id" placeholder="NXT Account ID" tabindex="2" />
+								<input type="text" class="form-control" name="account_id" id="update_contact_account_id" placeholder="NXL Account ID" tabindex="2" />
 							</div>
 							<div class="form-group">
 								<label for="update_contact_email">EMAIL ADDRESS</label>
@@ -1852,9 +1840,9 @@ quantity decimal point." data-container="body" style="color:#4CAA6E" ></i></labe
 							<div class="row">
 								<div class="col-xs-6 col-sm-6 col-md-6">
 									<div class="form-group">
-										<label for="issue_asset_fee">FEE <i class="fa fa-exclamation-circle show_popover" data-content="The minimum fee to issue an asset is 1,000 Bils" data-container="body" style="color:red"></i></label>
+										<label for="issue_asset_fee">FEE <i class="fa fa-exclamation-circle show_popover" data-content="The minimum fee to issue an asset is 1,000 NXL" data-container="body" style="color:red"></i></label>
 																				
-										<input type="number" name="feeNXT" id="issue_asset_fee" class="form-control" placeholder="Fee" step="any" min="1000" data-default="1000" value="1000" tabindex="6">
+										<input type="number" name="feeNXL" id="issue_asset_fee" class="form-control" placeholder="Fee" step="any" min="1000" data-default="1000" value="1000" tabindex="6">
 									</div>
 								</div>
 								<div class="col-xs-6 col-sm-6 col-md-6">
@@ -1942,7 +1930,7 @@ quantity decimal point." data-container="body" style="color:#4CAA6E" ></i></labe
 								<div class="col-xs-6 col-sm-6 col-md-6">
 									<div class="form-group">
 										<label for="create_poll_fee">FEE</label>
-										<input type="number" name="feeNXT" id="create_poll_fee" class="form-control" step="any" min="1" placeholder="Fee" data-default="1" value="1" tabindex="3">
+										<input type="number" name="feeNXL" id="create_poll_fee" class="form-control" step="any" min="1" placeholder="Fee" data-default="1" value="1" tabindex="3">
 									</div>
 								</div>
 								<div class="col-xs-6 col-sm-6 col-md-6">
@@ -2034,7 +2022,7 @@ quantity decimal point." data-container="body" style="color:#4CAA6E" ></i></labe
 		    	<div class="modal-content">
 		      		<div class="modal-header">
 		        		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-		        		<h4 class="modal-title">Send Bilshares</h4>
+		        		<h4 class="modal-title">Send NXL</h4>
 		      		</div>
 			      	<div class="modal-body">			
 						<form role="form">
@@ -2052,13 +2040,13 @@ quantity decimal point." data-container="body" style="color:#4CAA6E" ></i></labe
 								<div class="col-xs-6 col-sm-6 col-md-6">
 									<div class="form-group">
 										<label for="send_money_amount">AMOUNT</label>
-						                <input type="text" name="amountNXT" id="send_money_amount" step="any" min="0" class="form-control" placeholder="Amount" tabindex="2">
+						                <input type="text" name="amountNXL" id="send_money_amount" step="any" min="0" class="form-control" placeholder="Amount" tabindex="2">
 									</div>
 								</div>
 								<div class="col-xs-3 col-sm-3 col-md-3">
 									<div class="form-group">
 										<label for="send_money_fee">FEE</label>
-										<input type="number" name="feeNXT" id="send_money_fee" class="form-control" step="any" min="1" placeholder="Fee" data-default="1" value="1" tabindex="3">
+										<input type="number" name="feeNXL" id="send_money_fee" class="form-control" step="any" min="1" placeholder="Fee" data-default="1" value="1" tabindex="3">
 									</div>
 								</div>
 								<div class="col-xs-3 col-sm-3 col-md-3">
@@ -2076,11 +2064,11 @@ quantity decimal point." data-container="body" style="color:#4CAA6E" ></i></labe
 						<div class="callout account_info" style="display:none;margin-bottom: 0;"></div>
 					</div>
 		      		<div class="modal-footer" style="margin-top:0;">
-		      			<input type="hidden" name="failure_message" value="An unknown error occured! NXT may or may not be sent." />
+		      			<input type="hidden" name="failure_message" value="An unknown error occured! NXL may or may not be sent." />
 		      			<input type="hidden" name="request_type" value="sendMoney" />
 		      			<input type="hidden" name="converted_account_id" value="" />
 				        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-				        <button type="button" class="btn btn-primary" data-loading-text="Submitting...">Send Bilshares</button>
+				        <button type="button" class="btn btn-primary" data-loading-text="Submitting...">Send NXL</button>
 		      		</div>
 		    	</div>
 		  	</div>
@@ -2114,7 +2102,7 @@ quantity decimal point." data-container="body" style="color:#4CAA6E" ></i></labe
 								<div class="col-xs-6 col-sm-6 col-md-6">
 									<div class="form-group">
 										<label for="send_message_fee">FEE</label>
-										<input type="number" name="feeNXT" id="send_message_fee" class="form-control" step="any" min="1" placeholder="Fee" data-default="1" value="1" tabindex="3">
+										<input type="number" name="feeNXL" id="send_message_fee" class="form-control" step="any" min="1" placeholder="Fee" data-default="1" value="1" tabindex="3">
 									</div>
 								</div>
 								<div class="col-xs-6 col-sm-6 col-md-6">
@@ -2164,7 +2152,7 @@ quantity decimal point." data-container="body" style="color:#4CAA6E" ></i></labe
 								<div class="col-xs-6 col-sm-6 col-md-6">
 									<div class="form-group">
 										<label for="account_info_fee">FEE</label>
-										<input type="number" name="feeNXT" id="account_info_fee" class="form-control" step="any" min="1" placeholder="Fee" data-default="1" value="1" tabindex="3">
+										<input type="number" name="feeNXL" id="account_info_fee" class="form-control" step="any" min="1" placeholder="Fee" data-default="1" value="1" tabindex="3">
 									</div>
 								</div>
 								<div class="col-xs-6 col-sm-6 col-md-6">
@@ -2222,7 +2210,7 @@ quantity decimal point." data-container="body" style="color:#4CAA6E" ></i></labe
 								<div class="col-xs-6 col-sm-6 col-md-6">
 									<div class="form-group">
 										<label for="register_alias_fee">FEE</label>
-										<input type="number" name="feeNXT" id="register_alias_fee" class="form-control" step="any" min="1" placeholder="Fee" data-default="1" value="1" tabindex="3">
+										<input type="number" name="feeNXL" id="register_alias_fee" class="form-control" step="any" min="1" placeholder="Fee" data-default="1" value="1" tabindex="3">
 									</div>
 								</div>
 								<div class="col-xs-6 col-sm-6 col-md-6">
@@ -2470,7 +2458,7 @@ quantity decimal point." data-container="body" style="color:#4CAA6E" ></i></labe
 						<div class="user_info_modal_content data-never-loading" id="user_info_modal_actions" style="display:none;">
 							<div class="row">
 								<div class="col-xs-6 col-md-6" style="margin-left:auto;margin-right:auto;float:none;">
-									<button type="button" class="btn btn-default btn-lg btn-block" data-toggle="modal" data-target="#send_money_modal" data-account="">Send Bilshares</button>
+									<button type="button" class="btn btn-default btn-lg btn-block" data-toggle="modal" data-target="#send_money_modal" data-account="">Send NXL</button>
 									<button type="button" class="btn btn-default btn-lg btn-block" data-toggle="modal" data-target="#send_message_modal" data-account="">Send a Message</button>
 									<button type="button" id="user_info_modal_add_as_contact" class="btn btn-default btn-lg btn-block" data-toggle="modal" data-target="#add_contact_modal" data-account="">Add as Contact</button>
 								</div>
@@ -2571,7 +2559,7 @@ quantity decimal point." data-container="body" style="color:#4CAA6E" ></i></labe
 							    		<td style="font-weight: bold"># Trades:</td><td><span id="nrs_node_state_numberOfTrades"></span></td>
 							    	</tr>
 							    	<tr>
-							    		<td style="font-weight: bold">Total Balance:</td><td><span id="nrs_node_state_totalEffectiveBalanceNXT"></span></td>
+							    		<td style="font-weight: bold">Total Balance:</td><td><span id="nrs_node_state_totalEffectiveBalanceNXL"></span></td>
 							    		<td style="font-weight: bold"># Polls:</td><td><span id="nrs_node_state_numberOfPolls"></span></td>
 							    	</tr>
 							    	<tr>
@@ -2748,7 +2736,7 @@ quantity decimal point." data-container="body" style="color:#4CAA6E" ></i></labe
 		    <ul class="dropdown-menu" data-container="body" role="menu" style="display:block;position:static;margin-bottom:5px;">
 		    	<li><a tabindex="-1" href="#" data-option="account_info">Account Info</a></li>
 		        <li><a tabindex="-1" href="#" data-option="add_contact">Add Contact</a></li>
-				<li><a tabindex="-1" href="#" data-option="send_nxt">Send Bilshares</a></li>
+				<li><a tabindex="-1" href="#" data-option="send_nxt">Send NXL</a></li>
 		    </ul>
 		</div>
 		
@@ -2756,7 +2744,7 @@ quantity decimal point." data-container="body" style="color:#4CAA6E" ></i></labe
 		    <ul class="dropdown-menu" data-container="body" role="menu" style="display:block;position:static;margin-bottom:5px;">
 		    	<li><a tabindex="-1" href="#" data-option="account_info">Account Info</a></li>
 		        <li><a tabindex="-1" href="#" data-option="update_contact">Update Contact</a></li>
-				<li><a tabindex="-1" href="#" data-option="send_nxt">Send Bilshares</a></li>
+				<li><a tabindex="-1" href="#" data-option="send_nxt">Send NXL</a></li>
 		    </ul>
 		</div>
 		

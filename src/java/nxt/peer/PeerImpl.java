@@ -188,7 +188,7 @@ final class PeerImpl implements Peer {
         if (account == null) {
             return 0;
         }
-        return (int)(adjustedWeight * (account.getBalanceNQT() / Constants.ONE_NXT) / Constants.MAX_BALANCE_NXT);
+        return (int)(adjustedWeight * (account.getBalanceNQT() / Constants.ONE_NXL) / Constants.MAX_BALANCE_NXL);
     }
 
     @Override
@@ -419,7 +419,7 @@ final class PeerImpl implements Peer {
             }
 
             for (PeerImpl peer : groupedPeers) {
-                peer.adjustedWeight = Constants.MAX_BALANCE_NXT * peer.getHallmarkWeight(mostRecentDate) / totalWeight;
+                peer.adjustedWeight = Constants.MAX_BALANCE_NXL * peer.getHallmarkWeight(mostRecentDate) / totalWeight;
                 Peers.notifyListeners(peer, Peers.Event.WEIGHT);
             }
 

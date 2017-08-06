@@ -97,7 +97,7 @@ var NRS = (function(NRS, $, undefined) {
 			}, function(response) {
 				if (/http:\/\//i.test(response.aliasURI)) {
 					NRS.forms.setAliasType("uri");
-				} else if (/acct:(\d+)@bils/.test(response.aliasURI) || /nacc:(\d+)/.test(response.aliasURI)) {
+				} else if (/acct:(\d+)@nxl/.test(response.aliasURI) || /nacc:(\d+)/.test(response.aliasURI)) {
 					NRS.forms.setAliasType("account");
 				} else {
 					NRS.forms.setAliasType("general");
@@ -132,9 +132,9 @@ var NRS = (function(NRS, $, undefined) {
 		data.uri = $.trim(data.uri);
 
 		if (data.type == "account") {
-			if (!(/acct:(\d+)@bils/.test(data.uri)) && !(/nacc:(\d+)/.test(data.uri))) {
+			if (!(/acct:(\d+)@nxl/.test(data.uri)) && !(/nacc:(\d+)/.test(data.uri))) {
 				if (/^\d+$/.test(data.uri)) {
-					data.uri = "acct:" + data.uri + "@bils";
+					data.uri = "acct:" + data.uri + "@nxl";
 				} else {
 					return {
 						"error": "Invalid account ID."
@@ -178,9 +178,9 @@ var NRS = (function(NRS, $, undefined) {
 			$("#register_alias_uri").prop("placeholder", "Account ID");
 			$("#register_alias_uri").val("");
 			if (uri) {
-				if (!(/acct:(\d+)@bils/.test(uri)) && !(/nacc:(\d+)/.test(uri))) {
+				if (!(/acct:(\d+)@nxl/.test(uri)) && !(/nacc:(\d+)/.test(uri))) {
 					if (/^\d+$/.test(uri)) {
-						$("#register_alias_uri").val("acct:" + uri + "@bils");
+						$("#register_alias_uri").val("acct:" + uri + "@nxl");
 					} else {
 						$("#register_alias_uri").val("");
 					}
@@ -190,7 +190,7 @@ var NRS = (function(NRS, $, undefined) {
 			} else {
 				$("#register_alias_uri").val("");
 			}
-			$("#register_alias_help").html("The alias will reference the account number entered and can be used to send Bilshares to, messages, etc..").show();
+			$("#register_alias_help").html("The alias will reference the account number entered and can be used to send NXL to, messages, etc..").show();
 		} else {
 			$("#register_alias_uri_label").html("Data");
 			$("#register_alias_uri").prop("placeholder", "Data");

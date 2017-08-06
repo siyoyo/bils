@@ -6,17 +6,17 @@
 			$("#account_balance_table").hide();
 
 			if (NRS.accountInfo.errorCode == 5) {
-				$("#account_balance_warning").html("您的帐户是全新的，建议您存入一些BILS，您的帐户ID是：<strong>" + NRS.account + "</strong>").show();
+				$("#account_balance_warning").html("您的帐户是全新的，建议您存入一些NXL，您的帐户ID是：<strong>" + NRS.account + "</strong>").show();
 			} else {
 				$("#account_balance_warning").html(NRS.accountInfo.errorDescription.escapeHTML()).show();
 			}
 		} else {
 			$("#account_balance_warning").hide();
 
-			$("#account_balance_balance").html(NRS.formatAmount(new BigInteger(NRS.accountInfo.balanceNQT)) + " BILS");
-			$("#account_balance_unconfirmed_balance").html(NRS.formatAmount(new BigInteger(NRS.accountInfo.unconfirmedBalanceNQT)) + " BILS");
-			$("#account_balance_effective_balance").html(NRS.formatAmount(NRS.accountInfo.effectiveBalanceNXT) + " BILS");
-			$("#account_balance_guaranteed_balance").html(NRS.formatAmount(new BigInteger(NRS.accountInfo.guaranteedBalanceNQT)) + " BILS");
+			$("#account_balance_balance").html(NRS.formatAmount(new BigInteger(NRS.accountInfo.balanceNQT)) + " NXL");
+			$("#account_balance_unconfirmed_balance").html(NRS.formatAmount(new BigInteger(NRS.accountInfo.unconfirmedBalanceNQT)) + " NXL");
+			$("#account_balance_effective_balance").html(NRS.formatAmount(NRS.accountInfo.effectiveBalanceNXL) + " NXL");
+			$("#account_balance_guaranteed_balance").html(NRS.formatAmount(new BigInteger(NRS.accountInfo.guaranteedBalanceNQT)) + " NXL");
 
 			$("#account_balance_public_key").html(String(NRS.accountInfo.publicKey).escapeHTML());
 			$("#account_balance_account_id").html(String(NRS.account).escapeHTML());
@@ -24,7 +24,7 @@
 
 			if (!NRS.accountInfo.publicKey) {
 				$("#account_balance_public_key").html("/");
-				$("#account_balance_warning").html("您的帐号没有公钥哦! 酱紫的话就不能像其它帐号一样受保护了. 您只要发送一笔款项，或者发送一条信息到其它帐户，或者购买一个别名就可以解决这问题了哦. (<a href='#' data-toggle='modal' data-target='#send_message_modal'>发送消息</a>, <a href='#' data-toggle='modal' data-target='#register_alias_modal'>购买别名</a>, <a href='#' data-toggle='modal' data-target='#send_money_modal'>发送BILS</a>, ...)").show();
+				$("#account_balance_warning").html("您的帐号没有公钥哦! 酱紫的话就不能像其它帐号一样受保护了. 您只要发送一笔款项，或者发送一条信息到其它帐户，或者购买一个别名就可以解决这问题了哦. (<a href='#' data-toggle='modal' data-target='#send_message_modal'>发送消息</a>, <a href='#' data-toggle='modal' data-target='#register_alias_modal'>购买别名</a>, <a href='#' data-toggle='modal' data-target='#send_money_modal'>发送NXL</a>, ...)").show();
 			}
 		}
 	});

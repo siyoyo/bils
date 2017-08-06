@@ -256,7 +256,7 @@ function NxtAddress() {
 	} //__________________________
 
 	this.toString = function() {
-		var out = 'BILS-';
+		var out = 'NXL-';
 
 		for (var i = 0; i < 17; i++) {
 			out += alphabet[codeword[cwmap[i]]];
@@ -311,12 +311,16 @@ function NxtAddress() {
 
 		adr = adr.replace(/(^\s+)|(\s+$)/g, '').toUpperCase();
 
-		if (adr.indexOf('BILS-') == 0) adr = adr.substr(5);
-
+		if (adr.indexOf('NXL-') == 0) 
+		{ 
+	     adr = adr.substr(4);
+        }
+		
 		if (adr.match(/^\d{1,20}$/g)) // account id
-		{
-			if (allow_accounts) return from_acc(adr);
-		} else // address
+		{ 
+		  if (allow_accounts) return from_acc(adr);
+		} 
+		else // address
 		{
 			var clean = [];
 
@@ -350,7 +354,7 @@ function NxtAddress() {
 		}
 
 		if (len == 18) // guess insertion
-		{
+		{      
 			for (var i = 0; i < 18; i++) {
 				set_codeword(clean, 18, i);
 

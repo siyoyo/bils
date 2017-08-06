@@ -36,12 +36,12 @@ public final class GetState extends APIServlet.APIRequestHandler {
 
         long totalEffectiveBalance = 0;
         for (Account account : Account.getAllAccounts()) {
-            long effectiveBalanceNXT = account.getEffectiveBalanceNXT();
-            if (effectiveBalanceNXT > 0) {
-                totalEffectiveBalance += effectiveBalanceNXT;
+            long effectiveBalanceNXL = account.getEffectiveBalanceNXL();
+            if (effectiveBalanceNXL > 0) {
+                totalEffectiveBalance += effectiveBalanceNXL;
             }
         }
-        response.put("totalEffectiveBalanceNXT", totalEffectiveBalance);
+        response.put("totalEffectiveBalanceNXL", totalEffectiveBalance);
 
         response.put("numberOfBlocks", Nxt.getBlockchain().getHeight() + 1);
         response.put("numberOfTransactions", Nxt.getBlockchain().getTransactionCount());

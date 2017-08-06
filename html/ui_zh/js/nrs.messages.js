@@ -306,7 +306,7 @@
 	NRS.forms.sendMessage = function($modal) {
 		var data = {
 			"recipient": $.trim($("#send_message_recipient").val()),
-			"feeNXT": $.trim($("#send_message_fee").val()),
+			"feeNXL": $.trim($("#send_message_fee").val()),
 			"deadline": $.trim($("#send_message_deadline").val()),
 			"secretPhrase": $.trim($("#send_message_password").val())
 		};
@@ -367,7 +367,7 @@
 
 		var data = {
 			"recipient": $.trim($("#inline_message_recipient").val()),
-			"feeNXT": "1",
+			"feeNXL": "1",
 			"deadline": "1440",
 			"secretPhrase": $.trim($("#inline_message_password").val())
 		};

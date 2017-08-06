@@ -218,7 +218,7 @@
 						}
 
 						//forging requires password to be sent to the server, so we don't do it automatically if not localhost
-						if (!NRS.accountInfo.publicKey || NRS.accountInfo.effectiveBalanceNXT == 0 || !NRS.isLocalHost || NRS.downloadingBlockchain || NRS.isLeased) {
+						if (!NRS.accountInfo.publicKey || NRS.accountInfo.effectiveBalanceNXL == 0 || !NRS.isLocalHost || NRS.downloadingBlockchain || NRS.isLeased) {
 							$("#forging_indicator").removeClass("forging");
 							$("#forging_indicator span").html("未锻造");
 							$("#forging_indicator").show();

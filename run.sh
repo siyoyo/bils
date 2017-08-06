@@ -1,1 +1,1 @@
-java -cp bils.jar:lib/*:conf nxt.Nxt
+java -cp nxl.jar:lib/*:conf nxt.Nxt

@@ -56,7 +56,7 @@ var NRS = (function(NRS, $, undefined) {
 			$.growl("You cannot forge because your account has no public key. Please make an outgoing transaction first.", {
 				"type": "danger"
 			});
-		} else if (NRS.accountInfo.effectiveBalanceNXT == 0) {
+		} else if (NRS.accountInfo.effectiveBalanceNXL == 0) {
 			if (NRS.lastBlockHeight >= NRS.accountInfo.currentLeasingHeightFrom && NRS.lastBlockHeight <= NRS.accountInfo.currentLeasingHeightTo) {
 				$.growl("Your effective balance is leased out, you cannot forge at the moment.", {
 					"type": "danger"

@@ -27,8 +27,8 @@ public final class SendMoney extends UserServlet.UserRequestHandler {
         }
 
         String recipientValue = req.getParameter("recipient");
-        String amountValue = req.getParameter("amountNXT");
-        String feeValue = req.getParameter("feeNXT");
+        String amountValue = req.getParameter("amountNXL");
+        String feeValue = req.getParameter("feeNXL");
         String deadlineValue = req.getParameter("deadline");
         String secretPhrase = req.getParameter("secretPhrase");
 
@@ -41,8 +41,8 @@ public final class SendMoney extends UserServlet.UserRequestHandler {
 
             recipient = Convert.parseUnsignedLong(recipientValue);
             if (recipient == null) throw new IllegalArgumentException("invalid recipient");
-            amountNQT = Convert.parseNXT(amountValue.trim());
-            feeNQT = Convert.parseNXT(feeValue.trim());
+            amountNQT = Convert.parseNXL(amountValue.trim());
+            feeNQT = Convert.parseNXL(feeValue.trim());
             deadline = (short)(Double.parseDouble(deadlineValue) * 60);
 
         } catch (RuntimeException e) {
@@ -51,8 +51,8 @@ public final class SendMoney extends UserServlet.UserRequestHandler {
             response.put("response", "notifyOfIncorrectTransaction");
             response.put("message", "One of the fields is filled incorrectly!");
             response.put("recipient", recipientValue);
-            response.put("amountNXT", amountValue);
-            response.put("feeNXT", feeValue);
+            response.put("amountNXL", amountValue);
+            response.put("feeNXL", feeValue);
             response.put("deadline", deadlineValue);
 
             return response;
@@ -64,8 +64,8 @@ public final class SendMoney extends UserServlet.UserRequestHandler {
             response.put("response", "notifyOfIncorrectTransaction");
             response.put("message", "Wrong secret phrase!");
             response.put("recipient", recipientValue);
-            response.put("amountNXT", amountValue);
-            response.put("feeNXT", feeValue);
+            response.put("amountNXL", amountValue);
+            response.put("feeNXL", feeValue);
             response.put("deadline", deadlineValue);
 
             return response;
@@ -76,20 +76,20 @@ public final class SendMoney extends UserServlet.UserRequestHandler {
             response.put("response", "notifyOfIncorrectTransaction");
             response.put("message", "\"Amount\" must be greater than 0!");
             response.put("recipient", recipientValue);
-            response.put("amountNXT", amountValue);
-            response.put("feeNXT", feeValue);
+            response.put("amountNXL", amountValue);
+            response.put("feeNXL", feeValue);
             response.put("deadline", deadlineValue);
 
             return response;
 
-        } else if (feeNQT < Constants.ONE_NXT || feeNQT > Constants.MAX_BALANCE_NQT) {
+        } else if (feeNQT < Constants.ONE_NXL || feeNQT > Constants.MAX_BALANCE_NQT) {
 
             JSONObject response = new JSONObject();
             response.put("response", "notifyOfIncorrectTransaction");
-            response.put("message", "\"Fee\" must be at least 1 NXT!");
+            response.put("message", "\"Fee\" must be at least 1 NXL!");
             response.put("recipient", recipientValue);
-            response.put("amountNXT", amountValue);
-            response.put("feeNXT", feeValue);
+            response.put("amountNXL", amountValue);
+            response.put("feeNXL", feeValue);
             response.put("deadline", deadlineValue);
 
             return response;
@@ -100,8 +100,8 @@ public final class SendMoney extends UserServlet.UserRequestHandler {
             response.put("response", "notifyOfIncorrectTransaction");
             response.put("message", "\"Deadline\" must be greater or equal to 1 minute and less than 24 hours!");
             response.put("recipient", recipientValue);
-            response.put("amountNXT", amountValue);
-            response.put("feeNXT", feeValue);
+            response.put("amountNXL", amountValue);
+            response.put("feeNXL", feeValue);
             response.put("deadline", deadlineValue);
 
             return response;
@@ -115,8 +115,8 @@ public final class SendMoney extends UserServlet.UserRequestHandler {
             response.put("response", "notifyOfIncorrectTransaction");
             response.put("message", "Not enough funds!");
             response.put("recipient", recipientValue);
-            response.put("amountNXT", amountValue);
-            response.put("feeNXT", feeValue);
+            response.put("amountNXL", amountValue);
+            response.put("feeNXL", feeValue);
             response.put("deadline", deadlineValue);
 
             return response;

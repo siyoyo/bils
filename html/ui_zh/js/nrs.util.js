@@ -268,7 +268,7 @@
 			price = new BigInteger(String(price));
 		}
 
-		return NRS.convertToNXT(price.multiply(new BigInteger("" + Math.pow(10, decimals))), returnAsObject);
+		return NRS.convertToNXL(price.multiply(new BigInteger("" + Math.pow(10, decimals))), returnAsObject);
 	}
 
 	NRS.calculatePricePerWholeQNT = function(price, decimals) {
@@ -311,7 +311,7 @@
 			priceNQT = new BigInteger(String(priceNQT));
 		}
 
-		return NRS.convertToNXT(quantityQNT.multiply(priceNQT));
+		return NRS.convertToNXL(quantityQNT.multiply(priceNQT));
 	}
 
 	NRS.calculatePercentage = function(a, b) {
@@ -323,7 +323,7 @@
 		return result.toString();
 	}
 
-	NRS.convertToNXT = function(amount, returnAsObject) {
+	NRS.convertToNXL = function(amount, returnAsObject) {
 		var negative = "";
 		var afterComma = "";
 
@@ -538,7 +538,7 @@
 		var formattedAmount = "";
 
 		if (typeof amount == "object") {
-			var params = NRS.convertToNXT(amount, true);
+			var params = NRS.convertToNXL(amount, true);
 
 			negative = params.negative;
 			amount = params.amount;
@@ -903,7 +903,7 @@
 					value = NRS.formatQuantity(value, 0);
 				}
 			} else if (key == "Price" || key == "Total" || key == "Amount" || key == "Fee") {
-				value = NRS.formatAmount(new BigInteger(value)) + " BILS";
+				value = NRS.formatAmount(new BigInteger(value)) + " NXL";
 			} else if (key == "Sender" || key == "Recipient" || key == "Account") {
 				value = "<a href='#' data-user='" + String(value).escapeHTML() + "'>" + NRS.getAccountTitle(value) + "</a>";
 			} else {

@@ -173,13 +173,13 @@
 			};
 		}
 
-		if (!/^\d+$/.test(data.id) && !/^BILS\-/i.test(data.id)) {
+		if (!/^\d+$/.test(data.id) && !/^NXL\-/i.test(data.id)) {
 			return {
 				"error": "资产或者帐户ID无效."
 			};
 		}
 
-		if (/^BILS\-/i.test(data.id)) {
+		if (/^NXL\-/i.test(data.id)) {
 			NRS.sendRequest("getAssetsByIssuer", {
 				"account": data.id
 			}, function(response) {
@@ -257,7 +257,7 @@
 
 	/*
 	NRS.saveAssetIssuer = function(issuer) {
-		if (!/^BILS\-/i.test(issuer)) {
+		if (!/^NXL\-/i.test(issuer)) {
 			var address = new NxtAddress();
 
 			if (address.set(issuer)) {
@@ -838,7 +838,7 @@
 		} else {
 			NRS.assetSearch = [];
 
-			if (/BILS\-/i.test(input)) {
+			if (/NXL\-/i.test(input)) {
 				$.each(NRS.assets, function(key, asset) {
 					if (asset.accountRS.toLowerCase() == input || asset.accountRS.toLowerCase().indexOf(input) !== -1) {
 						NRS.assetSearch.push(asset.asset);
@@ -906,7 +906,7 @@
 
 			$("#" + type + "_asset_price").val(NRS.calculateOrderPricePerWholeQNT(priceNQT, NRS.currentAsset.decimals));
 			$("#" + type + "_asset_quantity").val(NRS.convertToQNTf(quantityQNT, NRS.currentAsset.decimals));
-			$("#" + type + "_asset_total").val(NRS.convertToNXT(totalNQT));
+			$("#" + type + "_asset_total").val(NRS.convertToNXL(totalNQT));
 		} catch (err) {
 			return;
 		}
@@ -955,7 +955,7 @@
 			if (price.cmp(new Big("0")) <= 0) {
 				//get minimum price if no offers exist, based on asset decimals..
 				price = new Big("" + Math.pow(10, NRS.currentAsset.decimals));
-				$("#" + type + "_asset_price").val(NRS.convertToNXT(price.toString()));
+				$("#" + type + "_asset_price").val(NRS.convertToNXL(price.toString()));
 			}
 
 			var quantity = new Big(NRS.amountToPrecision((type == "sell" ? balanceNQT : balance).div(price).toString(), NRS.currentAsset.decimals));
@@ -977,7 +977,7 @@
 			}
 
 			$("#" + type + "_asset_quantity").val(quantity.toString());
-			$("#" + type + "_asset_total").val(NRS.convertToNXT(total.toString()));
+			$("#" + type + "_asset_total").val(NRS.convertToNXL(total.toString()));
 
 			$("#" + type + "_asset_total").css({
 				"background": "",
@@ -1103,7 +1103,7 @@
 			var quantityQNT = new BigInteger(NRS.convertToQNT(quantity, NRS.currentAsset.decimals));
 			var priceNQT = new BigInteger(NRS.calculatePricePerWholeQNT(NRS.convertToNQT(String($("#" + orderType + "_asset_price").val())), NRS.currentAsset.decimals));
 			var feeNQT = new BigInteger(NRS.convertToNQT(String($("#" + orderType + "_asset_fee").val())));
-			var totalNXT = NRS.formatAmount(NRS.calculateOrderTotalNQT(quantityQNT, priceNQT, NRS.currentAsset.decimals), false, true);
+			var totalNXL = NRS.formatAmount(NRS.calculateOrderTotalNQT(quantityQNT, priceNQT, NRS.currentAsset.decimals), false, true);
 		} catch (err) {
 			$.growl("无效输入.", {
 				"type": "danger"
@@ -1125,16 +1125,16 @@
 		var priceNQTPerWholeQNT = priceNQT.multiply(new BigInteger("" + Math.pow(10, NRS.currentAsset.decimals)));
 
 		if (orderType == "buy") {
-			var description = "以每个<strong>" + NRS.formatAmount(priceNQTPerWholeQNT, false, true) + " BILS</strong>的价格购买了 <strong>" + NRS.formatQuantity(quantityQNT, NRS.currentAsset.decimals, true) + " " + $("#asset_name").html() + "</strong> 个.";
-			var tooltipTitle = "购买单个资产，您将支付 " + NRS.formatAmount(priceNQTPerWholeQNT, false, true) + " BILS, 如果全部购买完，您将支付 " + totalNXT + " BILS .";
+			var description = "以每个<strong>" + NRS.formatAmount(priceNQTPerWholeQNT, false, true) + " NXL</strong>的价格购买了 <strong>" + NRS.formatQuantity(quantityQNT, NRS.currentAsset.decimals, true) + " " + $("#asset_name").html() + "</strong> 个.";
+			var tooltipTitle = "购买单个资产，您将支付 " + NRS.formatAmount(priceNQTPerWholeQNT, false, true) + " NXL, 如果全部购买完，您将支付 " + totalNXL + " NXL .";
 		} else {
-			var description = " 以每个<strong>" + NRS.formatAmount(priceNQTPerWholeQNT, false, true) + " BILS</strong>的价格销售了<strong>" + NRS.formatQuantity(quantityQNT, NRS.currentAsset.decimals, true) + " " + $("#asset_name").html() + "</strong> 个.";
-			var tooltipTitle = "单个资产销售后，您将得到" + NRS.formatAmount(priceNQTPerWholeQNT, false, true) + "BILS, 一旦所有都销售完，总共会得到 " + totalNXT + " BILS.";
+			var description = " 以每个<strong>" + NRS.formatAmount(priceNQTPerWholeQNT, false, true) + " NXL</strong>的价格销售了<strong>" + NRS.formatQuantity(quantityQNT, NRS.currentAsset.decimals, true) + " " + $("#asset_name").html() + "</strong> 个.";
+			var tooltipTitle = "单个资产销售后，您将得到" + NRS.formatAmount(priceNQTPerWholeQNT, false, true) + "NXL, 一旦所有都销售完，总共会得到 " + totalNXL + " NXL.";
 		}
 
 		$("#asset_order_description").html(description);
-		$("#asset_order_total").html(totalNXT + " BILS");
-		$("#asset_order_fee_paid").html(NRS.formatAmount(feeNQT) + " BILS");
+		$("#asset_order_total").html(totalNXL + " NXL");
+		$("#asset_order_fee_paid").html(NRS.formatAmount(feeNQT) + " NXL");
 
 		if (quantity != "1") {
 			$("#asset_order_total_tooltip").show();

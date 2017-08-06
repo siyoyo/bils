@@ -56,11 +56,11 @@ var NRS = (function(NRS, $, undefined) {
 
 	NRS.forms.sendMoneyComplete = function(response, data) {
 		if (!(data["_extra"] && data["_extra"].convertedAccount) && !(data.recipient in NRS.contacts)) {
-			$.growl("NXT has been sent! <a href='#' data-account='" + NRS.getAccountFormatted(data, "recipient") + "' data-toggle='modal' data-target='#add_contact_modal' style='text-decoration:underline'>Add recipient to contacts?</a>", {
+			$.growl("NXL has been sent! <a href='#' data-account='" + NRS.getAccountFormatted(data, "recipient") + "' data-toggle='modal' data-target='#add_contact_modal' style='text-decoration:underline'>Add recipient to contacts?</a>", {
 				"type": "success"
 			});
 		} else {
-			$.growl("NXT has been sent!", {
+			$.growl("NXL has been sent!", {
 				"type": "success"
 			});
 		}
@@ -84,7 +84,7 @@ var NRS = (function(NRS, $, undefined) {
 			if (response.publicKey) {
 				callback({
 					"type": "info",
-					"message": "The recipient account has a public key and a balance of " + NRS.formatAmount(response.unconfirmedBalanceNQT, false, true) + "NXT.",
+					"message": "The recipient account has a public key and a balance of " + NRS.formatAmount(response.unconfirmedBalanceNQT, false, true) + "NXL.",
 					"account": response
 				});
 			} else {
@@ -92,7 +92,7 @@ var NRS = (function(NRS, $, undefined) {
 					if (response.errorCode == 4) {
 						callback({
 							"type": "danger",
-							"message": "The recipient account is malformed, please adjust." + (!/^(NXT\-)/i.test(accountId) ? " If you want to type an alias, prepend it with the @ character." : ""),
+							"message": "The recipient account is malformed, please adjust." + (!/^(NXL\-)/i.test(accountId) ? " If you want to type an alias, prepend it with the @ character." : ""),
 							"account": null
 						});
 					} else if (response.errorCode == 5) {
@@ -111,7 +111,7 @@ var NRS = (function(NRS, $, undefined) {
 				} else {
 					callback({
 						"type": "warning",
-						"message": "The recipient account does not have a public key, meaning it has never had an outgoing transaction. The account has a balance of " + NRS.formatAmount(response.unconfirmedBalanceNQT, false, true) + " NXT. Please double check your recipient address before submitting.",
+						"message": "The recipient account does not have a public key, meaning it has never had an outgoing transaction. The account has a balance of " + NRS.formatAmount(response.unconfirmedBalanceNQT, false, true) + " NXL. Please double check your recipient address before submitting.",
 						"account": response
 					});
 				}
@@ -134,9 +134,8 @@ var NRS = (function(NRS, $, undefined) {
 		account = $.trim(account);
 
 		//solomon reed. Btw, this regex can be shortened..
-		if (/^(NXT\-)?[A-Z0-9]+\-[A-Z0-9]+\-[A-Z0-9]+\-[A-Z0-9]+/i.test(account)) {
+		if (/^(NXL\-)?[A-Z0-9]+\-[A-Z0-9]+\-[A-Z0-9]+\-[A-Z0-9]+/i.test(account)) {
 			var address = new NxtAddress();
-
 			if (address.set(account)) {
 				NRS.getAccountError(account, function(response) {
 					if (response.account) {
@@ -148,8 +147,7 @@ var NRS = (function(NRS, $, undefined) {
 					callout.removeClass(classes).addClass("callout-" + response.type).html(message).show();
 				});
 			} else {
-				if (address.guess.length == 1) {
-
+				if (address.guess.toString().length == 1) {
 					callout.removeClass(classes).addClass("callout-danger").html("The recipient address is malformed, did you mean <span class='malformed_address' data-address='" + String(address.guess[0]).escapeHTML() + "' onclick='NRS.correctAddressMistake(this);'>" + address.format_guess(address.guess[0], account) + "</span> ?").show();
 				} else if (address.guess.length > 1) {
 					var html = "The recipient address is malformed, did you mean:<ul>";

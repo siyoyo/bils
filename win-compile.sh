@@ -5,8 +5,8 @@ SP=src/java/
 
 javac -sourcepath $SP -classpath $CP -d classes/ src/java/nxt/*.java src/java/nxt/*/*.java || exit 1
 
-/bin/rm -f bils.jar 
-jar cf bils.jar -C classes . || exit 1
+/bin/rm -f nxl.jar 
+jar cf nxl.jar -C classes . || exit 1
 /bin/rm -rf classes
 
-echo "bils.jar generated successfully"
+echo "nxl.jar generated successfully"
