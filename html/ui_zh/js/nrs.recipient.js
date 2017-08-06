@@ -28,7 +28,7 @@
 
 	$("#send_money_amount").on("input", function(e) {
 		var amount = parseInt($(this).val(), 10);
-		$("#send_money_fee").val(isNaN(amount) ? "1" : (amount < 500 ? 1 : Math.round(amount / 1000)));
+		$("#send_money_fee").val(isNaN(amount) ? "0.1" : ((amount < 1000) ? 0.1 : (((amount / 5000) < 0.1) ? 0.1 : (amount / 5000) )));
 	});
 
 	//todo later: http://twitter.github.io/typeahead.js/

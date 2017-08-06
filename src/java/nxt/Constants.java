@@ -9,7 +9,7 @@ public final class Constants {
     public static final int MAX_NUMBER_OF_TRANSACTIONS = 255;
     public static final int MAX_PAYLOAD_LENGTH = MAX_NUMBER_OF_TRANSACTIONS * 160;
     public static final long MAX_BALANCE_NXL = 2000000000;
-    public static final long ONE_NXL = 100000000;
+    public static final long ONE_NXL = 10000000;
     public static final long MAX_BALANCE_NQT = MAX_BALANCE_NXL * ONE_NXL;
     public static final long INITIAL_BASE_TARGET = 153722867;
     public static final long MAX_BASE_TARGET = MAX_BALANCE_NXL * INITIAL_BASE_TARGET;
@@ -23,7 +23,7 @@ public final class Constants {
     public static final int MAX_ACCOUNT_DESCRIPTION_LENGTH = 1000;
 
     public static final long MAX_ASSET_QUANTITY_QNT = 1000000000L * 100000000L;
-    public static final long ASSET_ISSUANCE_FEE_NQT = 300 * ONE_NXL;
+    public static final long ASSET_ISSUANCE_FEE_NQT = 300 * 100000000L;
     public static final int MIN_ASSET_NAME_LENGTH = 3;
     public static final int MAX_ASSET_NAME_LENGTH = 10;
     public static final int MAX_ASSET_DESCRIPTION_LENGTH = 1000;

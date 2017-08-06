@@ -11,6 +11,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+import nxt.util.Logger;
 
 public abstract class TransactionType {
 
@@ -784,6 +785,7 @@ public abstract class TransactionType {
 
             @Override
             void validateAttachment(Transaction transaction) throws NxtException.ValidationException {
+				Logger.logMessage("Fee nqt: " + transaction.getFeeNQT() + " constant fee " +  Constants.ASSET_ISSUANCE_FEE_NQT);
                 Attachment.ColoredCoinsAssetIssuance attachment = (Attachment.ColoredCoinsAssetIssuance)transaction.getAttachment();
                 if (! Genesis.CREATOR_ID.equals(transaction.getRecipientId()) || transaction.getAmountNQT() != 0
                         || transaction.getFeeNQT() < Constants.ASSET_ISSUANCE_FEE_NQT
