@@ -34,8 +34,8 @@ import java.util.TreeSet;
 
 final class BlockchainProcessorImpl implements BlockchainProcessor {
                                                       
-	private static final byte[] CHECKSUM_TRANSPARENT_FORGING = new byte[]{97, -79, -33, -88, 25, -59, -126, 96, -80, 1, 18, -5, 63, 124, 92, -9, -47, 3, -59, -88, 115, 80, 91, 0, 25, 0, 48, -99, -5, -124, -37, -77};
-    private static final byte[] CHECKSUM_NQT_BLOCK = new byte[]{97, -79, -33, -88, 25, -59, -126, 96, -80, 1, 18, -5, 63, 124, 92, -9, -47, 3, -59, -88, 115, 80, 91, 0, 25, 0, 48, -99, -5, -124, -37, -77};
+	private static final byte[] CHECKSUM_TRANSPARENT_FORGING = new byte[]{112, 9, -67, -53, -88, -51, 78, -8, 28, 2, -9, -22, 68, 19, -85, -45, 84, 17, -63, 12, -76, 56, 105, -113, 78, -127, 106, 65, -43, 107, -33, 																		29};
+    private static final byte[] CHECKSUM_NQT_BLOCK = new byte[]{112, 9, -67, -53, -88, -51, 78, -8, 28, 2, -9, -22, 68, 19, -85, -45, 84, 17, -63, 12, -76, 56, 105, -113, 78, -127, 106, 65, -43, 107, -33, 																29};
     private static final BlockchainProcessorImpl instance = new BlockchainProcessorImpl();
 
     static BlockchainProcessorImpl getInstance() {
