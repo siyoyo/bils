@@ -1,4 +1,4 @@
-var NRS = (function(NRS, $, undefined) {
+﻿var NRS = (function(NRS, $, undefined) {
 	NRS.multiQueue = null;
 
 	NRS.sendOutsideRequest = function(url, data, callback, async) {
@@ -338,8 +338,8 @@ var NRS = (function(NRS, $, undefined) {
 
 		if (!("recipient" in data)) {
 			//recipient == genesis
-			data.recipient = "16985221722424377042";
-			//data.recipientRS = "NXL-QH74-GFWP-X86Z-6BHZT";
+			data.recipient = "3342252292595121715";
+			data.recipientRS = "NXL-VZKM-S46X-HXEG-4JJSW";
 		}
 
 		if (transaction.senderPublicKey != NRS.accountInfo.publicKey) {
@@ -904,7 +904,7 @@ var NRS = (function(NRS, $, undefined) {
 
 			if (callback) {
 				if (error == "timeout") {
-					error = "The request timed out. Warning: This does not mean the request did not go through. You should a few blocks and see if your request has been processed before trying to submit it again.";
+					error = "The request timed out. Warning: This does not mean the request did not go through. You should wait a couple of blocks and see if your request has been processed.";
 				}
 				callback({
 					"errorCode": -1,
