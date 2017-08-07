@@ -44,24 +44,19 @@ var NRS = (function(NRS, $, undefined) {
 	$("#forging_indicator").click(function(e) {
 		e.preventDefault();
 
-		//if (NRS.downloadingBlockchain) {
-		//	$.growl("The blockchain is busy downloading, you cannot forge during this time. Please try again when the blockchain is fully synced.", {
-		//		"type": "danger"
-		//	});
-		//} else
-			if (NRS.state.isScanning) {
+		if (NRS.downloadingBlockchain) {
+			$.growl("The blockchain is busy downloading, you cannot forge during this time. Please try again when the blockchain is fully synced.", {
+				"type": "danger"
+			});
+		} else if (NRS.state.isScanning) {
 			$.growl("The blockchain is currently being rescanned, you cannot forge during this time. Please try again in a minute.", {
 				"type": "danger"
 			});
-		} 
-		
-		//else if (!NRS.accountInfo.publicKey) {
-		//	$.growl("You cannot forge because your account has no public key. Please make an outgoing transaction first.", {
-		//		"type": "danger"
-		//	});
-		//} 
-		
-		else if (NRS.accountInfo.effectiveBalanceNXL == 0) {
+		} else if (!NRS.accountInfo.publicKey) {
+			$.growl("You cannot forge because your account has no public key. Please make an outgoing transaction first.", {
+				"type": "danger"
+			});
+		} else if (NRS.accountInfo.effectiveBalanceNXL == 0) {
 			if (NRS.lastBlockHeight >= NRS.accountInfo.currentLeasingHeightFrom && NRS.lastBlockHeight <= NRS.accountInfo.currentLeasingHeightTo) {
 				$.growl("Your effective balance is leased out, you cannot forge at the moment.", {
 					"type": "danger"
