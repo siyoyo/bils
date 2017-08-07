@@ -36,12 +36,12 @@
 	NRS.assetTableKeys = [];
 
 	NRS.init = function() {
-		if (location.port && location.port != "16876") {
-			$(".testnet_only").hide();
-		} else {
-			NRS.isTestNet = true;
-			$(".testnet_only, #testnet_login, #testnet_warning").show();
-		}
+		//if (location.port && location.port != "16876") {
+		//	$(".testnet_only").hide();
+		//} else {
+		//	NRS.isTestNet = true;
+		//	$(".testnet_only, #testnet_login, #testnet_warning").show();
+		//}
 
 		if (!NRS.server) {
 			var hostName = window.location.hostname.toLowerCase();
