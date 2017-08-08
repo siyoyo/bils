@@ -256,7 +256,7 @@ function NxtAddress() {
 	} //__________________________
 
 	this.toString = function() {
-		var out = 'NXL-';
+		var out = 'MYS-';
 
 		for (var i = 0; i < 17; i++) {
 			out += alphabet[codeword[cwmap[i]]];
@@ -311,7 +311,7 @@ function NxtAddress() {
 
 		adr = adr.replace(/(^\s+)|(\s+$)/g, '').toUpperCase();
 
-		if (adr.indexOf('NXL-') == 0) 
+		if (adr.indexOf('MYS-') == 0) 
 		{ 
 	     adr = adr.substr(4);
         }

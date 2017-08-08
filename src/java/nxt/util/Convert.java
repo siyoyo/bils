@@ -68,7 +68,7 @@ public final class Convert {
             return null;
         }
         account = account.toUpperCase();
-        if (account.startsWith("NXL-")) {
+        if (account.startsWith("MYS-")) {
             return zeroToNull(Crypto.rsDecode(account.substring(4)));
         } else {
             return parseUnsignedLong(account);
@@ -76,7 +76,7 @@ public final class Convert {
     }
 
     public static String rsAccount(Long accountId) {
-        return "NXL-" + Crypto.rsEncode(nullToZero(accountId));
+        return "MYS-" + Crypto.rsEncode(nullToZero(accountId));
     }
 
     public static Long fullHashToId(byte[] hash) {
@@ -138,8 +138,8 @@ public final class Convert {
         return s == null ? replaceNull : s.length() > limit ? (s.substring(0, dots ? limit - 3 : limit) + (dots ? "..." : "")) : s;
     }
 
-    public static long parseNXL(String nxt) {
-        return parseStringFraction(nxt, 8, Constants.MAX_BALANCE_NXL);
+    public static long parseMYS(String nxt) {
+        return parseStringFraction(nxt, 8, Constants.MAX_BALANCE_MYS);
     }
 
     private static long parseStringFraction(String value, int decimals, long maxValue) {

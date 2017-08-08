@@ -130,9 +130,9 @@ var NRS = (function(NRS, $, undefined) {
 
 		if (data.recipient) {
 			data.recipient = $.trim(data.recipient);
-			if (!/^\d+$/.test(data.recipient) && !/^NXL\-[A-Z0-9]+\-[A-Z0-9]+\-[A-Z0-9]+\-[A-Z0-9]+/i.test(data.recipient)) {
+			if (!/^\d+$/.test(data.recipient) && !/^MYS\-[A-Z0-9]+\-[A-Z0-9]+\-[A-Z0-9]+\-[A-Z0-9]+/i.test(data.recipient)) {
 				var convertedAccountId = $modal.find("input[name=converted_account_id]").val();
-				if (!convertedAccountId || (!/^\d+$/.test(convertedAccountId) && !/^NXL\-[A-Z0-9]+\-[A-Z0-9]+\-[A-Z0-9]+\-[A-Z0-9]+/i.test(convertedAccountId))) {
+				if (!convertedAccountId || (!/^\d+$/.test(convertedAccountId) && !/^MYS\-[A-Z0-9]+\-[A-Z0-9]+\-[A-Z0-9]+\-[A-Z0-9]+/i.test(convertedAccountId))) {
 					$modal.find(".error_message").html("Invalid account ID.").show();
 					NRS.unlockForm($modal, $btn);
 					return;
@@ -152,19 +152,19 @@ var NRS = (function(NRS, $, undefined) {
 		}
 
 		if (!NRS.showedFormWarning) {
-			if ("amountNXL" in data && NRS.settings["amount_warning"] && NRS.settings["amount_warning"] != "0") {
-				if (new BigInteger(NRS.convertToNQT(data.amountNXL)).compareTo(new BigInteger(NRS.settings["amount_warning"])) > 0) {
+			if ("amountMYS" in data && NRS.settings["amount_warning"] && NRS.settings["amount_warning"] != "0") {
+				if (new BigInteger(NRS.convertToNQT(data.amountMYS)).compareTo(new BigInteger(NRS.settings["amount_warning"])) > 0) {
 					NRS.showedFormWarning = true;
-					$modal.find(".error_message").html("You amount is higher than " + NRS.formatAmount(NRS.settings["amount_warning"]) + " NXL. Are you sure you want to continue? Click the submit button again to confirm.").show();
+					$modal.find(".error_message").html("You amount is higher than " + NRS.formatAmount(NRS.settings["amount_warning"]) + " MYS. Are you sure you want to continue? Click the submit button again to confirm.").show();
 					NRS.unlockForm($modal, $btn);
 					return;
 				}
 			}
 
-			if ("feeNXL" in data && NRS.settings["fee_warning"] && NRS.settings["fee_warning"] != "0") {
-				if (new BigInteger(NRS.convertToNQT(data.feeNXL)).compareTo(new BigInteger(NRS.settings["fee_warning"])) > 0) {
+			if ("feeMYS" in data && NRS.settings["fee_warning"] && NRS.settings["fee_warning"] != "0") {
+				if (new BigInteger(NRS.convertToNQT(data.feeMYS)).compareTo(new BigInteger(NRS.settings["fee_warning"])) > 0) {
 					NRS.showedFormWarning = true;
-					$modal.find(".error_message").html("You fee is higher than " + NRS.formatAmount(NRS.settings["fee_warning"]) + " NXL. Are you sure you want to continue? Click the submit button again to confirm.").show();
+					$modal.find(".error_message").html("You fee is higher than " + NRS.formatAmount(NRS.settings["fee_warning"]) + " MYS. Are you sure you want to continue? Click the submit button again to confirm.").show();
 					NRS.unlockForm($modal, $btn);
 					return;
 				}

@@ -48,7 +48,7 @@
 						contactDescription = "-";
 					}
 
-					rows += "<tr><td><a href='#' data-toggle='modal' data-target='#update_contact_modal' data-contact='" + String(contact.id).escapeHTML() + "'>" + contact.name.escapeHTML() + "</a></td><td><a href='#' data-user='" + NRS.getAccountFormatted(contact, "account") + "' class='user_info'>" + NRS.getAccountFormatted(contact, "account") + "</a></td><td>" + (contact.email ? contact.email.escapeHTML() : "-") + "</td><td>" + contactDescription.escapeHTML() + "</td><td style='white-space:nowrap'><a class='btn btn-xs btn-default' href='#' data-toggle='modal' data-target='#send_money_modal' data-contact='" + String(contact.name).escapeHTML() + "'>发送NXL</a> <a class='btn btn-xs btn-default' href='#' data-toggle='modal' data-target='#send_message_modal' data-contact='" + String(contact.name).escapeHTML() + "'>短消息</a> <a class='btn btn-xs btn-default' href='#' data-toggle='modal' data-target='#delete_contact_modal' data-contact='" + String(contact.id).escapeHTML() + "'>删除</a></td></tr>";
+					rows += "<tr><td><a href='#' data-toggle='modal' data-target='#update_contact_modal' data-contact='" + String(contact.id).escapeHTML() + "'>" + contact.name.escapeHTML() + "</a></td><td><a href='#' data-user='" + NRS.getAccountFormatted(contact, "account") + "' class='user_info'>" + NRS.getAccountFormatted(contact, "account") + "</a></td><td>" + (contact.email ? contact.email.escapeHTML() : "-") + "</td><td>" + contactDescription.escapeHTML() + "</td><td style='white-space:nowrap'><a class='btn btn-xs btn-default' href='#' data-toggle='modal' data-target='#send_money_modal' data-contact='" + String(contact.name).escapeHTML() + "'>发送MYS</a> <a class='btn btn-xs btn-default' href='#' data-toggle='modal' data-target='#send_message_modal' data-contact='" + String(contact.name).escapeHTML() + "'>短消息</a> <a class='btn btn-xs btn-default' href='#' data-toggle='modal' data-target='#delete_contact_modal' data-contact='" + String(contact.id).escapeHTML() + "'>删除</a></td></tr>";
 				});
 
 				$("#contacts_table tbody").empty().append(rows);
@@ -79,7 +79,7 @@
 			};
 		}
 
-		if (/^\d+$/.test(data.name) || /^NXL\-/i.test(data.name)) {
+		if (/^\d+$/.test(data.name) || /^MYS\-/i.test(data.name)) {
 			return {
 				"error": "联系人姓名必须包含字母."
 			};
@@ -102,7 +102,7 @@
 			}
 		}
 
-		if (/^NXL\-/i.test(data.account_id)) {
+		if (/^MYS\-/i.test(data.account_id)) {
 			data.account_rs = data.account_id;
 
 			var address = new NxtAddress();
@@ -200,7 +200,7 @@
 		if (!contactId && NRS.selectedContext) {
 			var accountId = NRS.selectedContext.data("account");
 
-			var dbKey = (/^NXL\-/i.test(accountId) ? "accountRS" : "account");
+			var dbKey = (/^MYS\-/i.test(accountId) ? "accountRS" : "account");
 
 			var dbQuery = {};
 			dbQuery[dbKey] = accountId;
@@ -272,7 +272,7 @@
 			};
 		}
 
-		if (/^NXL\-/i.test(data.account_id)) {
+		if (/^MYS\-/i.test(data.account_id)) {
 			data.account_rs = data.account_id;
 
 			var address = new NxtAddress();

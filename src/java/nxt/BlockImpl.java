@@ -256,8 +256,8 @@ final class BlockImpl implements Block {
         buffer.putLong(Convert.nullToZero(previousBlockId));
         buffer.putInt(blockTransactions.size());
         if (version < 3) {
-            buffer.putInt((int)(totalAmountNQT / Constants.ONE_TEN_NXL));
-            buffer.putInt((int)(totalFeeNQT / Constants.ONE_TEN_NXL));
+            buffer.putInt((int)(totalAmountNQT / Constants.ONE_TEN_MYS));
+            buffer.putInt((int)(totalFeeNQT / Constants.ONE_TEN_MYS));
         } else {
             buffer.putLong(totalAmountNQT);
             buffer.putLong(totalFeeNQT);
@@ -313,7 +313,7 @@ final class BlockImpl implements Block {
             }
 
             Account account = Account.getAccount(getGeneratorId());
-            long effectiveBalance = account == null ? 0 : account.getEffectiveBalanceNXL();
+            long effectiveBalance = account == null ? 0 : account.getEffectiveBalanceMYS();
             if (effectiveBalance <= 0) {
                 return false;
             }

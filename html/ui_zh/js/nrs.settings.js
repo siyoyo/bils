@@ -381,7 +381,7 @@
 		for (var key in NRS.settings) {
 			if (/_warning/i.test(key) && key != "asset_transfer_warning") {
 				if ($("#settings_" + key).length) {
-					$("#settings_" + key).val(NRS.convertToNXL(NRS.settings[key]));
+					$("#settings_" + key).val(NRS.convertToMYS(NRS.settings[key]));
 				}
 			} else if (!/_color/i.test(key)) {
 				if ($("#settings_" + key).length) {

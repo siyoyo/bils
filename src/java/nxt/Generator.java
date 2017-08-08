@@ -112,7 +112,7 @@ public final class Generator {
     }
 
     static long getHitTime(Account account, Block block) {
-        return getHitTime(account.getEffectiveBalanceNXL(), getHit(account.getPublicKey(), block), block);
+        return getHitTime(account.getEffectiveBalanceMYS(), getHit(account.getPublicKey(), block), block);
     }
 
     private static BigInteger getHit(byte[] publicKey, Block block) {
@@ -125,10 +125,10 @@ public final class Generator {
         return new BigInteger(1, new byte[] {generationSignatureHash[7], generationSignatureHash[6], generationSignatureHash[5], generationSignatureHash[4], generationSignatureHash[3], generationSignatureHash[2], generationSignatureHash[1], generationSignatureHash[0]});
     }
 
-    private static long getHitTime(long effectiveBalanceNXL, BigInteger hit, Block block) {
+    private static long getHitTime(long effectiveBalanceMYS, BigInteger hit, Block block) {
         return block.getTimestamp()
                 + hit.divide(BigInteger.valueOf(block.getBaseTarget())
-                .multiply(BigInteger.valueOf(effectiveBalanceNXL))).longValue();
+                .multiply(BigInteger.valueOf(effectiveBalanceMYS))).longValue();
     }
 
 
@@ -167,7 +167,7 @@ public final class Generator {
         if (account == null) {
             return;
         }
-        long effectiveBalance = account.getEffectiveBalanceNXL();
+        long effectiveBalance = account.getEffectiveBalanceMYS();
         if (effectiveBalance <= 0) {
             return;
         }
@@ -185,7 +185,7 @@ public final class Generator {
             lastBlocks.put(accountId, lastBlock);
             hits.put(accountId, hit);
 
-            deadline = Math.max(getHitTime(account.getEffectiveBalanceNXL(), hit, lastBlock) - Convert.getEpochTime(), 0);
+            deadline = Math.max(getHitTime(account.getEffectiveBalanceMYS(), hit, lastBlock) - Convert.getEpochTime(), 0);
 
             listeners.notify(this, Event.GENERATION_DEADLINE);
 

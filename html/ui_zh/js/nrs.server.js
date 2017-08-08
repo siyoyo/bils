@@ -58,13 +58,13 @@
 			}
 		});
 
-		//convert NXL to NQT...
+		//convert MYS to NQT...
 		try {
-			var nxtFields = ["feeNXL", "amountNXL"];
+			var nxtFields = ["feeMYS", "amountMYS"];
 
 			for (var i = 0; i < nxtFields.length; i++) {
 				var nxtField = nxtFields[i];
-				var field = nxtField.replace("NXL", "");
+				var field = nxtField.replace("MYS", "");
 
 				if (nxtField in data) {
 					data[field + "NQT"] = NRS.convertToNQT(data[nxtField]);
@@ -210,7 +210,7 @@
 			}
 
 			if (typeof data == "object" && "recipient" in data) {
-				if (/^NXL\-/i.test(data.recipient)) {
+				if (/^MYS\-/i.test(data.recipient)) {
 					data.recipientRS = data.recipient;
 
 					var address = new NxtAddress();
@@ -339,7 +339,7 @@
 		if (!("recipient" in data)) {
 			//recipient == genesis
 			data.recipient = "3342252292595121715";
-			data.recipientRS = "NXL-VZKM-S46X-HXEG-4JJSW";
+			data.recipientRS = "MYS-VZKM-S46X-HXEG-4JJSW";
 		}
 
 		if (transaction.senderPublicKey != NRS.accountInfo.publicKey) {

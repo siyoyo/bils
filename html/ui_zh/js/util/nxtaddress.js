@@ -1,5 +1,5 @@
 /*
-    NXL address class, extended version (with error guessing).
+    MYS address class, extended version (with error guessing).
 
     Version: 1.0, license: Public Domain, coder: NxtChg (admin@nxtchg.com).
 */
@@ -256,7 +256,7 @@ function NxtAddress() {
 	} //__________________________
 
 	this.toString = function() {
-		var out = 'NXL-';
+		var out = 'MYS-';
 
 		for (var i = 0; i < 17; i++) {
 			out += alphabet[codeword[cwmap[i]]];
@@ -311,7 +311,7 @@ function NxtAddress() {
 
 		adr = adr.replace(/(^\s+)|(\s+$)/g, '').toUpperCase();
 
-		if (adr.indexOf('NXL-') == 0) adr = adr.substr(5);
+		if (adr.indexOf('MYS-') == 0) adr = adr.substr(5);
 
 		if (adr.match(/^\d{1,20}$/g)) // account id
 		{

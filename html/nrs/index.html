@@ -91,8 +91,8 @@
 			}
 			
 			function adjustFee() {
-				var amount = parseInt(document.getElementById("amountNXL").value);
-				document.getElementById("feeNXL").value = isNaN(amount) ? 0.1 : ((amount < 100) ? 0.1 : (((amount / 5000) < 0.1) ? 0.1 : (amount / 5000) )));
+				var amount = parseInt(document.getElementById("amountMYS").value);
+				document.getElementById("feeMYS").value = isNaN(amount) ? 0.1 : ((amount < 100) ? 0.1 : (((amount / 5000) < 0.1) ? 0.1 : (amount / 5000) )));
 			}
 			
 			function adjustSections(widgetIndex, widgetHeight, sections) {
@@ -280,15 +280,15 @@
 			}
 			
 			function sendMoney() {
-				var element, recipient, amountNXL, feeNXL, deadline, secretPhrase;
+				var element, recipient, amountMYS, feeMYS, deadline, secretPhrase;
 				element = document.getElementById("input");
 				recipient = element.value;
 				element.readOnly = true;
-				element = document.getElementById("amountNXL");
-				amountNXL = element.value;
+				element = document.getElementById("amountMYS");
+				amountMYS = element.value;
 				element.readOnly = true;
-				element = document.getElementById("feeNXL");
-				feeNXL = element.value;
+				element = document.getElementById("feeMYS");
+				feeMYS = element.value;
 				element.readOnly = true;
 				element = document.getElementById("deadline");
 				deadline = element.value;
@@ -297,7 +297,7 @@
 				secretPhrase = element.value;
 				element.readOnly = true;
 				document.getElementById("sendMoney").disabled = true;
-				sendRequest("sendMoney&recipient=" + recipient + "&amountNXL=" + amountNXL + "&feeNXL=" + feeNXL + "&deadline=" + deadline +
+				sendRequest("sendMoney&recipient=" + recipient + "&amountMYS=" + amountMYS + "&feeMYS=" + feeMYS + "&deadline=" + deadline +
 				    "&secretPhrase=" + encodeURIComponent(secretPhrase));
 			}
 			
@@ -361,7 +361,7 @@
 								break;
 							case "notifyOfIncorrectTransaction":
 								showMessage(response.message, function() {
-									showTransactionDialog(response.recipient, response.amountNXL, response.feeNXL, response.deadline);
+									showTransactionDialog(response.recipient, response.amountMYS, response.feeMYS, response.deadline);
 								});
 								break;
 							case "processInitialData":document.title = "NRS " + response.version;
@@ -524,7 +524,7 @@
 				    "<tr><td class='input'><input type='password' id='input' onkeydown='if (event.keyCode == 13) unlockAccount(); else if (event.keyCode == 27) closeDialog();'></td></tr>" +
 				    "<tr><td><button id='unlockAccount' onclick='unlockAccount();'>Unlock account</button></td></tr>" +
 				    "<tr><td><b>If opening a new account, please note:</b><br /> " +
-				    "A simple passphrase will certainly result in your NXL being stolen! Do not use any phrase that appears in any printed or online material, " +
+				    "A simple passphrase will certainly result in your MYS being stolen! Do not use any phrase that appears in any printed or online material, " +
 				    "no matter how long or obscure. A secure passphrase will be at least 35 characters long and consist of random letters, numbers, and special " +
 				    "characters, or a meaningless combination of 10 random words.</td></tr></table>");
 			}
@@ -588,10 +588,10 @@
 				document.getElementById("fee").value = fee;
 			}
 			
-			function showTransactionDialog(recipient, amountNXL, feeNXL, deadline) {
+			function showTransactionDialog(recipient, amountMYS, feeMYS, deadline) {
 				showDialog("Transaction", "<table><tr><td class='label' colspan='2'>Recipient</td></tr><tr><td class='input' colspan='2'><input id='input'></td></tr>" +
 				    "<tr><td class='label' style='padding-top: 0;'>Amount</td><td class='label' style='padding-top: 0;'>Fee</td></tr>" +
-				    "<tr><td class='input'><input type='number' id='amountNXL' oninput='adjustFee();'></td><td class='input'><input type='number' id='feeNXL'></td></tr>" +
+				    "<tr><td class='input'><input type='number' id='amountMYS' oninput='adjustFee();'></td><td class='input'><input type='number' id='feeMYS'></td></tr>" +
 				    "<tr><td class='label' colspan='2' style='padding-top: 0;'>Deadline (in hours)</td></tr><tr><td class='input'><input type='number' id='deadline' oninput='adjustDeadlineTime();'></td>" +
 				        "<td class='input'><input id='deadlineTime' readonly></td></tr>" +
 				    "<tr><td class='label' colspan='2'>Secret phrase</td></tr>" +

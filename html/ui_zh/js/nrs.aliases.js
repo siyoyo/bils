@@ -97,7 +97,7 @@
 			}, function(response) {
 				if (/http:\/\//i.test(response.aliasURI)) {
 					NRS.forms.setAliasType("uri");
-				} else if (/acct:(\d+)@nxl/.test(response.aliasURI) || /nacc:(\d+)/.test(response.aliasURI)) {
+				} else if (/acct:(\d+)@mys/.test(response.aliasURI) || /nacc:(\d+)/.test(response.aliasURI)) {
 					NRS.forms.setAliasType("account");
 				} else {
 					NRS.forms.setAliasType("general");
@@ -132,9 +132,9 @@
 		data.uri = $.trim(data.uri);
 
 		if (data.type == "account") {
-			if (!(/acct:(\d+)@nxl/.test(data.uri)) && !(/nacc:(\d+)/.test(data.uri))) {
+			if (!(/acct:(\d+)@mys/.test(data.uri)) && !(/nacc:(\d+)/.test(data.uri))) {
 				if (/^\d+$/.test(data.uri)) {
-					data.uri = "acct:" + data.uri + "@nxl";
+					data.uri = "acct:" + data.uri + "@mys";
 				} else {
 					return {
 						"error": "Invalid account ID."
@@ -178,9 +178,9 @@
 			$("#register_alias_uri").prop("placeholder", "Account ID");
 			$("#register_alias_uri").val("");
 			if (uri) {
-				if (!(/acct:(\d+)@nxl/.test(uri)) && !(/nacc:(\d+)/.test(uri))) {
+				if (!(/acct:(\d+)@mys/.test(uri)) && !(/nacc:(\d+)/.test(uri))) {
 					if (/^\d+$/.test(uri)) {
-						$("#register_alias_uri").val("acct:" + uri + "@nxl");
+						$("#register_alias_uri").val("acct:" + uri + "@mys");
 					} else {
 						$("#register_alias_uri").val("");
 					}
@@ -190,7 +190,7 @@
 			} else {
 				$("#register_alias_uri").val("");
 			}
-			$("#register_alias_help").html("别名将和您输入的帐号绑定，且可用收接收NXL，或者消息..").show();
+			$("#register_alias_help").html("别名将和您输入的帐号绑定，且可用收接收MYS，或者消息..").show();
 		} else {
 			$("#register_alias_uri_label").html("Data");
 			$("#register_alias_uri").prop("placeholder", "Data");

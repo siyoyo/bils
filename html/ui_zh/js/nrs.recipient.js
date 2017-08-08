@@ -56,11 +56,11 @@
 
 	NRS.forms.sendMoneyComplete = function(response, data) {
 		if (!(data["_extra"] && data["_extra"].convertedAccount) && !(data.recipient in NRS.contacts)) {
-			$.growl("NXL已发送! <a href='#' data-account='" + NRS.getAccountFormatted(data, "recipient") + "' data-toggle='modal' data-target='#add_contact_modal' style='text-decoration:underline'>添加接收者为联系人?</a>", {
+			$.growl("MYS已发送! <a href='#' data-account='" + NRS.getAccountFormatted(data, "recipient") + "' data-toggle='modal' data-target='#add_contact_modal' style='text-decoration:underline'>添加接收者为联系人?</a>", {
 				"type": "success"
 			});
 		} else {
-			$.growl("NXL已发送!", {
+			$.growl("MYS已发送!", {
 				"type": "success"
 			});
 		}
@@ -84,7 +84,7 @@
 			if (response.publicKey) {
 				callback({
 					"type": "info",
-					"message": "该接收者的帐户有公钥，且它的余额为" + NRS.formatAmount(response.unconfirmedBalanceNQT, false, true) + "NXL.",
+					"message": "该接收者的帐户有公钥，且它的余额为" + NRS.formatAmount(response.unconfirmedBalanceNQT, false, true) + "MYS.",
 					"account": response
 				});
 			} else {
@@ -92,7 +92,7 @@
 					if (response.errorCode == 4) {
 						callback({
 							"type": "danger",
-							"message": "该接收者的帐户有异常，请核实." + (!/^(NXL\-)/i.test(accountId) ? " 如果您是想输入别名, 请在它前面加上@." : ""),
+							"message": "该接收者的帐户有异常，请核实." + (!/^(MYS\-)/i.test(accountId) ? " 如果您是想输入别名, 请在它前面加上@." : ""),
 							"account": null
 						});
 					} else if (response.errorCode == 5) {
@@ -111,7 +111,7 @@
 				} else {
 					callback({
 						"type": "warning",
-						"message": "该接收者帐户没有公钥，这意味着该帐户没有向外发送过交易. 该帐户有余额" + NRS.formatAmount(response.unconfirmedBalanceNQT, false, true) + " NXL. 请再次检查确认一下您的接收者帐户地址是正确的.",
+						"message": "该接收者帐户没有公钥，这意味着该帐户没有向外发送过交易. 该帐户有余额" + NRS.formatAmount(response.unconfirmedBalanceNQT, false, true) + " MYS. 请再次检查确认一下您的接收者帐户地址是正确的.",
 						"account": response
 					});
 				}
@@ -134,7 +134,7 @@
 		account = $.trim(account);
 
 		//solomon reed. Btw, this regex can be shortened..
-		if (/^(NXL\-)?[A-Z0-9]+\-[A-Z0-9]+\-[A-Z0-9]+\-[A-Z0-9]+/i.test(account)) {
+		if (/^(MYS\-)?[A-Z0-9]+\-[A-Z0-9]+\-[A-Z0-9]+\-[A-Z0-9]+/i.test(account)) {
 			var address = new NxtAddress();
 
 			if (address.set(account)) {
@@ -218,7 +218,7 @@
 					var alias = String(response.aliasURI);
 					var timestamp = response.timestamp;
 
-					var regex_1 = /acct:(\d+)@nxl/;
+					var regex_1 = /acct:(\d+)@mys/;
 					var regex_2 = /nacc:(\d+)/;
 
 					var match = alias.match(regex_1);

@@ -258,18 +258,18 @@ public final class Account {
         return forgedBalanceNQT;
     }
 
-    public long getEffectiveBalanceNXL() {
+    public long getEffectiveBalanceMYS() {
 
         Block lastBlock = Nxt.getBlockchain().getLastBlock();
 		if (this.height == 0) {
-			return getBalanceNQT() / Constants.ONE_NXL;
+			return getBalanceNQT() / Constants.ONE_MYS;
 		}
 
         if (lastBlock.getHeight() < currentLeasingHeightFrom) {
-                return (getGuaranteedBalanceNQT(1440) + getLessorsGuaranteedBalanceNQT()) / Constants.ONE_NXL;
+                return (getGuaranteedBalanceNQT(1440) + getLessorsGuaranteedBalanceNQT()) / Constants.ONE_MYS;
         }
 
-        return getLessorsGuaranteedBalanceNQT() / Constants.ONE_NXL;
+        return getLessorsGuaranteedBalanceNQT() / Constants.ONE_MYS;
 
     }
 

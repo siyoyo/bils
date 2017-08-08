@@ -374,7 +374,7 @@
 					} else if (NRS.state && NRS.state.isScanning) {
 						$("#dashboard_message").addClass("alert-danger").removeClass("alert-success").html("块链正在重新扫描，来一杯甜甜的咖啡,请耐心稍等片刻.").show();
 					} else {
-						$("#dashboard_message").addClass("alert-success").removeClass("alert-danger").html("欢迎光临您的新帐户. 您现在可以存一些NXL进来咯. 您的帐户ID是: <strong>" + String(preferredAccountFormat).escapeHTML() + "</strong>").show();
+						$("#dashboard_message").addClass("alert-success").removeClass("alert-danger").html("欢迎光临您的新帐户. 您现在可以存一些MYS进来咯. 您的帐户ID是: <strong>" + String(preferredAccountFormat).escapeHTML() + "</strong>").show();
 					}
 				} else {
 					$("#dashboard_message").addClass("alert-danger").removeClass("alert-success").html(NRS.accountInfo.errorDescription ? NRS.accountInfo.errorDescription.escapeHTML() : "发生未知错误.").show();
@@ -392,7 +392,7 @@
 				} else if (NRS.state && NRS.state.isScanning) {
 					$("#dashboard_message").addClass("alert-danger").removeClass("alert-success").html("块链正在重新扫描，来一杯甜甜的咖啡,请耐心稍等片刻.").show();
 				} else if (!NRS.accountInfo.publicKey) {
-					$("#dashboard_message").addClass("alert-danger").removeClass("alert-success").html("<b>请注意!</b>: 您的帐号没有公钥哦! 酱紫的话就不能像其它帐号一样受保护了. 您只要发送一笔款项，或者发送一条信息到其它帐户，或者购买一个别名就可以解决这问题了哦. (<a href='#' data-toggle='modal' data-target='#send_message_modal'>发送信息</a>, <a href='#' data-toggle='modal' data-target='#register_alias_modal'>购买别名</a>, <a href='#' data-toggle='modal' data-target='#send_money_modal'>发送NXL</a>, ...)").show();
+					$("#dashboard_message").addClass("alert-danger").removeClass("alert-success").html("<b>请注意!</b>: 您的帐号没有公钥哦! 酱紫的话就不能像其它帐号一样受保护了. 您只要发送一笔款项，或者发送一条信息到其它帐户，或者购买一个别名就可以解决这问题了哦. (<a href='#' data-toggle='modal' data-target='#send_message_modal'>发送信息</a>, <a href='#' data-toggle='modal' data-target='#register_alias_modal'>购买别名</a>, <a href='#' data-toggle='modal' data-target='#send_money_modal'>发送MYS</a>, ...)").show();
 				} else {
 					$("#dashboard_message").hide();
 				}
@@ -510,7 +510,7 @@
 			$("#lease_balance_message").html("<strong>Remember</strong>: Once submitted the lease cannot be cancelled.");
 		}
 
-		if (NRS.accountInfo.effectiveBalanceNXL == 0) {
+		if (NRS.accountInfo.effectiveBalanceMYS == 0) {
 			$("#forging_indicator").removeClass("forging");
 			$("#forging_indicator span").html("Not Forging");
 			$("#forging_indicator").show();
@@ -685,7 +685,7 @@
 
 		var id = $.trim($("#id_search input[name=q]").val());
 
-		if (/NXL\-/i.test(id)) {
+		if (/MYS\-/i.test(id)) {
 			NRS.sendRequest("getAccount", {
 				"account": id
 			}, function(response, input) {

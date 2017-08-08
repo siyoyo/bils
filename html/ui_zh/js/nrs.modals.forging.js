@@ -56,7 +56,7 @@
 			$.growl("因为您的帐号没有公钥，所以无法锻造，请先发送第一笔交易.", {
 				"type": "danger"
 			});
-		} else if (NRS.accountInfo.effectiveBalanceNXL == 0) {
+		} else if (NRS.accountInfo.effectiveBalanceMYS == 0) {
 			if (NRS.lastBlockHeight >= NRS.accountInfo.currentLeasingHeightFrom && NRS.lastBlockHeight <= NRS.accountInfo.currentLeasingHeightTo) {
 				$.growl("您的有效余额已出租，租用期内您暂时无法锻造.", {
 					"type": "danger"

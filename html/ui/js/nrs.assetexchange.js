@@ -173,13 +173,13 @@ var NRS = (function(NRS, $, undefined) {
 			};
 		}
 
-		if (!/^\d+$/.test(data.id) && !/^NXL\-/i.test(data.id)) {
+		if (!/^\d+$/.test(data.id) && !/^MYS\-/i.test(data.id)) {
 			return {
 				"error": "Asset or account ID is invalid."
 			};
 		}
 
-		if (/^NXL\-/i.test(data.id)) {
+		if (/^MYS\-/i.test(data.id)) {
 			NRS.sendRequest("getAssetsByIssuer", {
 				"account": data.id
 			}, function(response) {
@@ -257,7 +257,7 @@ var NRS = (function(NRS, $, undefined) {
 
 	/*
 	NRS.saveAssetIssuer = function(issuer) {
-		if (!/^NXL\-/i.test(issuer)) {
+		if (!/^MYS\-/i.test(issuer)) {
 			var address = new NxtAddress();
 
 			if (address.set(issuer)) {
@@ -838,7 +838,7 @@ var NRS = (function(NRS, $, undefined) {
 		} else {
 			NRS.assetSearch = [];
 
-			if (/NXL\-/i.test(input)) {
+			if (/MYS\-/i.test(input)) {
 				$.each(NRS.assets, function(key, asset) {
 					if (asset.accountRS.toLowerCase() == input || asset.accountRS.toLowerCase().indexOf(input) !== -1) {
 						NRS.assetSearch.push(asset.asset);
@@ -906,7 +906,7 @@ var NRS = (function(NRS, $, undefined) {
 
 			$("#" + type + "_asset_price").val(NRS.calculateOrderPricePerWholeQNT(priceNQT, NRS.currentAsset.decimals));
 			$("#" + type + "_asset_quantity").val(NRS.convertToQNTf(quantityQNT, NRS.currentAsset.decimals));
-			$("#" + type + "_asset_total").val(NRS.convertToNXL(totalNQT));
+			$("#" + type + "_asset_total").val(NRS.convertToMYS(totalNQT));
 		} catch (err) {
 			return;
 		}
@@ -955,7 +955,7 @@ var NRS = (function(NRS, $, undefined) {
 			if (price.cmp(new Big("0")) <= 0) {
 				//get minimum price if no offers exist, based on asset decimals..
 				price = new Big("" + Math.pow(10, NRS.currentAsset.decimals));
-				$("#" + type + "_asset_price").val(NRS.convertToNXL(price.toString()));
+				$("#" + type + "_asset_price").val(NRS.convertToMYS(price.toString()));
 			}
 
 			var quantity = new Big(NRS.amountToPrecision((type == "sell" ? balanceNQT : balance).div(price).toString(), NRS.currentAsset.decimals));
@@ -977,7 +977,7 @@ var NRS = (function(NRS, $, undefined) {
 			}
 
 			$("#" + type + "_asset_quantity").val(quantity.toString());
-			$("#" + type + "_asset_total").val(NRS.convertToNXL(total.toString()));
+			$("#" + type + "_asset_total").val(NRS.convertToMYS(total.toString()));
 
 			$("#" + type + "_asset_total").css({
 				"background": "",
@@ -1103,7 +1103,7 @@ var NRS = (function(NRS, $, undefined) {
 			var quantityQNT = new BigInteger(NRS.convertToQNT(quantity, NRS.currentAsset.decimals));
 			var priceNQT = new BigInteger(NRS.calculatePricePerWholeQNT(NRS.convertToNQT(String($("#" + orderType + "_asset_price").val())), NRS.currentAsset.decimals));
 			var feeNQT = new BigInteger(NRS.convertToNQT(String($("#" + orderType + "_asset_fee").val())));
-			var totalNXL = NRS.formatAmount(NRS.calculateOrderTotalNQT(quantityQNT, priceNQT, NRS.currentAsset.decimals), false, true);
+			var totalMYS = NRS.formatAmount(NRS.calculateOrderTotalNQT(quantityQNT, priceNQT, NRS.currentAsset.decimals), false, true);
 		} catch (err) {
 			$.growl("Invalid input.", {
 				"type": "danger"
@@ -1125,16 +1125,16 @@ var NRS = (function(NRS, $, undefined) {
 		var priceNQTPerWholeQNT = priceNQT.multiply(new BigInteger("" + Math.pow(10, NRS.currentAsset.decimals)));
 
 		if (orderType == "buy") {
-			var description = "Buy <strong>" + NRS.formatQuantity(quantityQNT, NRS.currentAsset.decimals, true) + " " + $("#asset_name").html() + "</strong> assets at <strong>" + NRS.formatAmount(priceNQTPerWholeQNT, false, true) + " NXL</strong> each.";
-			var tooltipTitle = "Per whole asset bought you will pay " + NRS.formatAmount(priceNQTPerWholeQNT, false, true) + " NXL, making a total of " + totalNXL + " NXL once everything have been bought.";
+			var description = "Buy <strong>" + NRS.formatQuantity(quantityQNT, NRS.currentAsset.decimals, true) + " " + $("#asset_name").html() + "</strong> assets at <strong>" + NRS.formatAmount(priceNQTPerWholeQNT, false, true) + " MYS</strong> each.";
+			var tooltipTitle = "Per whole asset bought you will pay " + NRS.formatAmount(priceNQTPerWholeQNT, false, true) + " MYS, making a total of " + totalMYS + " MYS once everything have been bought.";
 		} else {
-			var description = "Sell <strong>" + NRS.formatQuantity(quantityQNT, NRS.currentAsset.decimals, true) + " " + $("#asset_name").html() + "</strong> assets at <strong>" + NRS.formatAmount(priceNQTPerWholeQNT, false, true) + " NXL</strong> each.";
-			var tooltipTitle = "Per whole asset sold you will receive " + NRS.formatAmount(priceNQTPerWholeQNT, false, true) + " NXL, making a total of " + totalNXL + " NXL once everything has been sold.";
+			var description = "Sell <strong>" + NRS.formatQuantity(quantityQNT, NRS.currentAsset.decimals, true) + " " + $("#asset_name").html() + "</strong> assets at <strong>" + NRS.formatAmount(priceNQTPerWholeQNT, false, true) + " MYS</strong> each.";
+			var tooltipTitle = "Per whole asset sold you will receive " + NRS.formatAmount(priceNQTPerWholeQNT, false, true) + " MYS, making a total of " + totalMYS + " MYS once everything has been sold.";
 		}
 
 		$("#asset_order_description").html(description);
-		$("#asset_order_total").html(totalNXL + " NXL");
-		$("#asset_order_fee_paid").html(NRS.formatAmount(feeNQT) + " NXL");
+		$("#asset_order_total").html(totalMYS + " MYS");
+		$("#asset_order_fee_paid").html(NRS.formatAmount(feeNQT) + " MYS");
 
 		if (quantity != "1") {
 			$("#asset_order_total_tooltip").show();

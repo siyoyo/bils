@@ -8,12 +8,12 @@ public final class Constants {
     public static final int BLOCK_HEADER_LENGTH = 232;
     public static final int MAX_NUMBER_OF_TRANSACTIONS = 255;
     public static final int MAX_PAYLOAD_LENGTH = MAX_NUMBER_OF_TRANSACTIONS * 160;
-    public static final long MAX_BALANCE_NXL = 2000000000;
-	public static final long ONE_NXL = 100000000;
-    public static final long ONE_TEN_NXL = 10000000;
-    public static final long MAX_BALANCE_NQT = MAX_BALANCE_NXL * 100000000;
+    public static final long MAX_BALANCE_MYS = 2000000000;
+	public static final long ONE_MYS = 100000000;
+    public static final long ONE_TEN_MYS = 10000000;
+    public static final long MAX_BALANCE_NQT = MAX_BALANCE_MYS * 100000000;
     public static final long INITIAL_BASE_TARGET = 153722867;
-    public static final long MAX_BASE_TARGET = MAX_BALANCE_NXL * INITIAL_BASE_TARGET;
+    public static final long MAX_BASE_TARGET = MAX_BALANCE_MYS * INITIAL_BASE_TARGET;
 
     public static final int MAX_ALIAS_URI_LENGTH = 1000;
     public static final int MAX_ALIAS_LENGTH = 100;

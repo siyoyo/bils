@@ -62,7 +62,7 @@ public class Hub {
                 }
                 for (Map.Entry<Long, Hub> hubEntry : hubs.entrySet()) {
                     Account account = Account.getAccount(hubEntry.getKey());
-                    if (account != null && account.getEffectiveBalanceNXL() >= Constants.MIN_HUB_EFFECTIVE_BALANCE
+                    if (account != null && account.getEffectiveBalanceMYS() >= Constants.MIN_HUB_EFFECTIVE_BALANCE
                             && account.getPublicKey() != null) {
                         currentHits.add(new Hit(hubEntry.getValue(), Generator.getHitTime(account, block)));
                     }

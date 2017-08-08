@@ -125,13 +125,13 @@ final class DbVersion {
             case 27:
                 apply("ALTER TABLE transaction ALTER COLUMN fee BIGINT");
             case 28:
-                apply("UPDATE block SET total_amount = total_amount * " + Constants.ONE_TEN_NXL + " WHERE height <= " + Constants.NQT_BLOCK);
+                apply("UPDATE block SET total_amount = total_amount * " + Constants.ONE_TEN_MYS + " WHERE height <= " + Constants.NQT_BLOCK);
             case 29:
-                apply("UPDATE block SET total_fee = total_fee * " + Constants.ONE_TEN_NXL + " WHERE height <= " + Constants.NQT_BLOCK);
+                apply("UPDATE block SET total_fee = total_fee * " + Constants.ONE_TEN_MYS + " WHERE height <= " + Constants.NQT_BLOCK);
             case 30:
-                apply("UPDATE transaction SET amount = amount * " + Constants.ONE_TEN_NXL + " WHERE height <= " + Constants.NQT_BLOCK);
+                apply("UPDATE transaction SET amount = amount * " + Constants.ONE_TEN_MYS + " WHERE height <= " + Constants.NQT_BLOCK);
             case 31:
-                apply("UPDATE transaction SET fee = fee * " + Constants.ONE_TEN_NXL + " WHERE height <= " + Constants.NQT_BLOCK);
+                apply("UPDATE transaction SET fee = fee * " + Constants.ONE_TEN_MYS + " WHERE height <= " + Constants.NQT_BLOCK);
             case 32:
                 apply(null);
             case 33:
@@ -145,12 +145,12 @@ final class DbVersion {
             case 37:
                 if (!Constants.isTestnet) {
                     apply("INSERT INTO peer (address) VALUES " +
-                            "('node1.nxlnode.com'), ('node2.nxlnode.com'), " +
-                            "('node3.nxlnode.com'), ('node4.nxlnode.com')");
+                            "('node1.mysnode.com'), ('node2.mysnode.com'), " +
+                            "('node3.mysnode.com'), ('node4.mysnode.com')");
                 } else {
                     apply("INSERT INTO peer (address) VALUES " +
-                            "('node1.nxlnode.com'), ('node2.nxlnode.com'), " +
-                            "('node3.nxlnode.com'), ('node4.nxlnode.com')");
+                            "('node1.mysnode.com'), ('node2.mysnode.com'), " +
+                            "('node3.mysnode.com'), ('node4.mysnode.com')");
                 }
             case 38:
                 apply("ALTER TABLE transaction ADD COLUMN IF NOT EXISTS full_hash BINARY(32)");
