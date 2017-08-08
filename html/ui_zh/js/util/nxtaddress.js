@@ -1,5 +1,5 @@
 /*
-    MYS address class, extended version (with error guessing).
+    NXT address class, extended version (with error guessing).
 
     Version: 1.0, license: Public Domain, coder: NxtChg (admin@nxtchg.com).
 */
@@ -311,12 +311,16 @@ function NxtAddress() {
 
 		adr = adr.replace(/(^\s+)|(\s+$)/g, '').toUpperCase();
 
-		if (adr.indexOf('MYS-') == 0) adr = adr.substr(5);
-
+		if (adr.indexOf('MYS-') == 0) 
+		{ 
+	     adr = adr.substr(4);
+        }
+		
 		if (adr.match(/^\d{1,20}$/g)) // account id
-		{
-			if (allow_accounts) return from_acc(adr);
-		} else // address
+		{ 
+		  if (allow_accounts) return from_acc(adr);
+		} 
+		else // address
 		{
 			var clean = [];
 
@@ -350,7 +354,7 @@ function NxtAddress() {
 		}
 
 		if (len == 18) // guess insertion
-		{
+		{      
 			for (var i = 0; i < 18; i++) {
 				set_codeword(clean, 18, i);
 
