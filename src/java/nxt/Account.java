@@ -276,7 +276,7 @@ public final class Account {
     private long getLessorsGuaranteedBalanceNQT() {
         long lessorsGuaranteedBalanceNQT = 0;
         for (Long accountId : lessorIds) {
-            lessorsGuaranteedBalanceNQT += Account.getAccount(accountId).getGuaranteedBalanceNQT(180);
+            lessorsGuaranteedBalanceNQT += Account.getAccount(accountId).getGuaranteedBalanceNQT(1440);
         }
         return lessorsGuaranteedBalanceNQT;
     }
